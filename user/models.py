@@ -21,7 +21,7 @@ class User(models.Model):
 
     class Meta():
         db_table = "user"
-        app_label = "user"
+        app_label = "用户管理"
 
 
     
