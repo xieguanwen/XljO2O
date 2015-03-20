@@ -137,7 +137,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'ckeditor',
     'user',
-    # 'agents',
+    'agents',
     # 'stores',
     # 'active',
     # 'choose',
