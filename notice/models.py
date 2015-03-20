@@ -5,7 +5,7 @@ class NoticeCat(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     type = models.SmallIntegerField()
-    contentTemplate = models.TextField
+    contentTemplate = models.TextField()
 
     def __unicode__(self):
         return self.name
