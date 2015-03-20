@@ -5,7 +5,7 @@ from user.models import User
 
 class Agents(models.Model):
     id = models.AutoField(primary_key=True)
-    userId = models.ForeignKey(User,db_column="id")
+    userId = models.ForeignKey(User,db_column='id')
     companyName = models.CharField(max_length=50)
     license = models.CharField(max_length=100)
     certificate = models.CharField(max_length=100)
