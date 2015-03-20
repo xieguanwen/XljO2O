@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: Utf-8 -*-
 import datetime
 from django.db import models
 from stores.models import Store

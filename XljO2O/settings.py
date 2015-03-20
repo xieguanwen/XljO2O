@@ -137,6 +137,15 @@ INSTALLED_APPS = (
     'crispy_forms',
     'ckeditor',
     'user',
+    'active',
+    'agents',
+    'choose',
+    'comment',
+    'coupon',
+    'favorite',
+    'notice',
+    'region',
+    'stores',
 )
 
 DATE_FORMAT = 'Y-m-d'
