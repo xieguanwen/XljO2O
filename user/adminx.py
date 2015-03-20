@@ -1,7 +1,7 @@
 import xadmin
 from xadmin import views
 from django.contrib import admin
-from models import Member
+from models import User
 
 # class MainDashboard(object):
 #     widgets = [
@@ -14,12 +14,12 @@ from models import Member
 #     use_bootswatch = True
 # xadmin.site.register(views.BaseAdminView, BaseSetting)
 
-class MemberAdmin(object):
+class UserAdmin(object):
     list_display = ("id","userName")
     list_display_links = ("userName",)
     search_fields = ("userName",)
 
-xadmin.site.register(Member,MemberAdmin)
+xadmin.site.register(User,UserAdmin)
 
 
 
