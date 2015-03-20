@@ -14,7 +14,7 @@ class ActiveTemplate(models.Model):
         return self.name
 
     class Meta():
-        db_table = "ActiveTemplate"
+        db_table = "activeTemplate"
         app_label = "active"
 
 class Active(models.Model):
@@ -40,7 +40,7 @@ class ActiveTop(models.Model):
     isDisplay = models.BooleanField()
 
     def __unicode__(self):
-        return self.activeId;
+        return self.sort;
 
     class Meta:
         db_table = "activeTop"

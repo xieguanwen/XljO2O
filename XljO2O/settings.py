@@ -138,14 +138,14 @@ INSTALLED_APPS = (
     'ckeditor',
     'user',
     'active',
-    'agents',
-    'choose',
-    'comment',
-    'coupon',
-    'favorite',
-    'notice',
-    'region',
-    'stores',
+    # 'agents',
+    # 'choose',
+    # 'comment',
+    # 'coupon',
+    # 'favorite',
+    # 'notice',
+    # 'region',
+    # 'stores',
 )
 
 DATE_FORMAT = 'Y-m-d'
