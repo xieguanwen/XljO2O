@@ -13,7 +13,7 @@ class User(models.Model):
     integration = models.IntegerField(default=0,blank=True)
     lastLogin = models.DateTimeField(blank=True)
     visitCount = models.IntegerField()
-    mobile = models.CharField(max_length=20)
+    mobile = models.CharField(max_length=18)
     tel = models.CharField(max_length=20)
 
     def __unicode__(self):
