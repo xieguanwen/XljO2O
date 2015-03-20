@@ -1,11 +1,19 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-# class User(models.Model):
-#     id = models.AutoField("会员编号",primary_key=True)
-#     userName = models.CharField("会员名称",max_length=50)
-#     password = models.CharField("密码",max_length=32)
-    
+class Region(models.Model):
+    id = models.AutoField(primary_key=True)
+    parentId = models.IntegerField()
+    name = models.CharField(max_length=50)
+    type = models.SmallIntegerField()
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = "region"
+        app_label = "region"
+
 
 
 
