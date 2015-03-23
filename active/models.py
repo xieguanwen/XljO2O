@@ -14,7 +14,7 @@ class ActiveTemplate(models.Model):
         return self.name
 
     class Meta():
-        db_table = "activeTemplate"
+        db_table = "active_template"
         app_label = "active"
 
 class Active(models.Model):
@@ -43,5 +43,5 @@ class ActiveTop(models.Model):
         return self.sort;
 
     class Meta:
-        db_table = "activeTop"
+        db_table = "active_top"
         app_label = "active"
