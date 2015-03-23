@@ -15,7 +15,7 @@ from models import User
 # xadmin.site.register(views.BaseAdminView, BaseSetting)
 
 class UserAdmin(object):
-    list_display = ("userId","userName")
+    list_display = ("id","userName")
     list_display_links = ("userName",)
     search_fields = ("userName",)
 
