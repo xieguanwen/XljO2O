@@ -1,12 +1,9 @@
 import xadmin
-from xadmin import views
+from region.models import Region
 
-# class GlobalSetting(object):
-#     global_search_models = [Host, IDC]
-#     global_models_icon = {
-#         # Host: 'fa fa-laptop', IDC: 'fa fa-cloud'
-#     }
-#     menu_style = 'default'#'accordion'
-# xadmin.site.register(views.CommAdminView, GlobalSetting)
+class RegionAdmin(object):
+    list_display = ("regionId","name")
+    list_display_links = ("name",)
+    # search_fields = ()
 
-# xadmin.site.register(AccessRecord, AccessRecordAdmin)
+xadmin.site.register(Region,RegionAdmin)
