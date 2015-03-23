@@ -11,7 +11,7 @@ class SelectedThemeAdmin(object):
 xadmin.site.register(SelectedTheme,SelectedThemeAdmin)
 
 class ClerkAwardAdmin(object):
-    list_display = ("clerkAwardId","clerkId")
+    list_display = ("id","clerkId")
     list_display_links = ("clerkId",)
     # search_fields = ()
 
