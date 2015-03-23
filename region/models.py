@@ -2,7 +2,7 @@
 from django.db import models
 
 class Region(models.Model):
-    id = models.AutoField(primary_key=True)
+    regionId = models.AutoField(primary_key=True)
     parentId = models.IntegerField()
     name = models.CharField(max_length=50)
     type = models.SmallIntegerField()

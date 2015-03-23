@@ -145,7 +145,7 @@ INSTALLED_APPS = (
     # 'coupon',
     # 'favorite',
     # 'notice',
-    # 'region',
+    'region',
 )
 
 DATE_FORMAT = 'Y-m-d'
