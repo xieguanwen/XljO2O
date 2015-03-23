@@ -17,6 +17,8 @@ class Agents(models.Model):
     class Meta:
         db_table = "agents"
         app_label = "agents"
+        verbose_name = "代理商"
+        verbose_name_plural = "代理商"
     
 
 
