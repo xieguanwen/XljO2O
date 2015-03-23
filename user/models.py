@@ -13,7 +13,7 @@ class User(models.Model):
     sex = models.CharField("性别",max_length=10)
     integration = models.IntegerField("积分",default=0,blank=True)
     lastLogin = models.DateTimeField("最后登录时间",blank=True)
-    visitCount = models.IntegerField("登录次数",blank=True,editable=False)
+    visitCount = models.IntegerField("登录次数",blank=True)
     mobile = models.CharField("手机",max_length=18)
     tel = models.CharField("电话",max_length=20,blank=True)
 
