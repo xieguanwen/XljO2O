@@ -138,7 +138,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'user',
     'agents',
-    # 'stores',
+    'stores',
     # 'active',
     # 'choose',
     # 'comment',

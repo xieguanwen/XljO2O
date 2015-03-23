@@ -5,8 +5,8 @@ from agents.models import Agents
 from region.models import Region
 
 class Store(models.Model):
-    id = models.AutoField(primary_key=True)
-    agentsId = models.ForeignKey(Agents,db_column="id")
+    storeId = models.AutoField(primary_key=True)
+    agentsId = models.ForeignKey(Agents,db_column="agentsId")
     storeName = models.CharField(max_length=150)
     # province = models.ManyToOneRel(Region)
     # city = models.ManyToOneRel(Region)
@@ -35,9 +35,9 @@ class Store(models.Model):
 
 
 class Clerk(models.Model):
-    id = models.AutoField(primary_key=True)
+    clerkId = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    storeId = models.ForeignKey(Store,db_column="id")
+    storeId = models.ForeignKey(Store,db_column="storeId")
     sex = models.CharField(max_length=10)
     constellation = models.CharField(max_length=15)
     addTime = models.DateTimeField(default=datetime.datetime.now())
