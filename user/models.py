@@ -10,10 +10,10 @@ class User(models.Model):
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     rank = models.SmallIntegerField("等级",choices=RANK,default=RANK[0][0])
     email = models.CharField("电子邮件",max_length=50)
-    sex = models.CharField("性别",max_length=10)
+    sex = models.CharField("性别",max_length=10,blank=True)
     integration = models.IntegerField("积分",default=0,blank=True)
     lastLogin = models.DateTimeField("最后登录时间",blank=True)
-    visitCount = models.IntegerField("登录次数",blank=True,null=False)
+    visitCount = models.IntegerField("登录次数",blank=True)
     mobile = models.CharField("手机",max_length=18)
     tel = models.CharField("电话",max_length=20,blank=True)
 
