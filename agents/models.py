@@ -4,12 +4,12 @@ from django.db import models
 from user.models import User
 
 class Agents(models.Model):
-    agentsId = models.AutoField(primary_key=True)
-    userId = models.ForeignKey(User,db_column="userId")
-    companyName = models.CharField(max_length=50)
-    license = models.CharField(max_length=100)
-    certificate = models.CharField(max_length=100)
-    addTime = models.DateTimeField(default=datetime.datetime.now())
+    agentsId = models.AutoField("代理商编号",primary_key=True)
+    userId = models.ForeignKey(User,db_column="userId",verbose_name="用户名")
+    companyName = models.CharField("公司名称",max_length=50)
+    license = models.CharField("营业执照",max_length=100)
+    certificate = models.CharField("授权证书",max_length=100)
+    addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
         return self.companyName
