@@ -4,8 +4,8 @@ from django.db import models
 from user.models import User
 
 class Agents(models.Model):
-    id = models.AutoField(primary_key=True)
-    userId = models.ForeignKey(User)
+    agentsId = models.AutoField(primary_key=True)
+    userId = models.ForeignKey(User,db_column="userId")
     companyName = models.CharField(max_length=50)
     license = models.CharField(max_length=100)
     certificate = models.CharField(max_length=100)
