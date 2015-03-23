@@ -4,9 +4,9 @@ from stores.models import Store
 from stores.models import Clerk
 
 class Comment(models.Model):
-    id = models.AutoField(primary_key=True)
-    storeId = models.ForeignKey(Store,db_column="id")
-    clerkId = models.ForeignKey(Clerk,db_column="id")
+    commentId = models.AutoField(primary_key=True)
+    storeId = models.ForeignKey(Store,db_column="storeId")
+    clerkId = models.ForeignKey(Clerk,db_column="clerkId")
     subject = models.CharField(max_length=100)
     star = models.SmallIntegerField()
     content = models.TextField()

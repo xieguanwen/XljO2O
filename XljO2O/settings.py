@@ -141,10 +141,10 @@ INSTALLED_APPS = (
     'stores',
     'active',
     'choose',
-    # 'comment',
-    # 'coupon',
-    # 'favorite',
-    # 'notice',
+    'comment',
+    'coupon',
+    'favorite',
+    'notice',
     'region',
 )
 
