@@ -1,12 +1,19 @@
 import xadmin
-from xadmin import views
+from notice.models import NoticeCat
+from notice.models import Notice
 
-# class GlobalSetting(object):
-#     global_search_models = [Host, IDC]
-#     global_models_icon = {
-#         # Host: 'fa fa-laptop', IDC: 'fa fa-cloud'
-#     }
-#     menu_style = 'default'#'accordion'
-# xadmin.site.register(views.CommAdminView, GlobalSetting)
+class NoticeCatAdmin(object):
+    list_display = ("noticeCatId","name")
+    list_display_links = ("name",)
+    # search_fields = ()
 
-# xadmin.site.register(AccessRecord, AccessRecordAdmin)
+xadmin.site.register(NoticeCat,NoticeCatAdmin)
+
+class NoticeAdmin(object):
+    list_display = ("noticeId","subject")
+    list_display_links = ("subject",)
+    # search_fields = ()
+
+xadmin.site.register(Notice,NoticeAdmin)
+
+
