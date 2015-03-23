@@ -3,11 +3,12 @@ import datetime
 from django.db import models
 
 class User(models.Model):
+    RANK = (("代理商",2),("店铺",1))
     userId = models.AutoField("用户编号",primary_key=True)
     userName = models.CharField("用户名称",max_length=50)
     password = models.CharField("密码",max_length=32)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
-    rank = models.SmallIntegerField("等级",default=(1,2))
+    rank = models.SmallIntegerField("等级",default=RANK[1][1],choices=RANK)
     email = models.CharField("电子邮件",max_length=50)
     sex = models.CharField("性别",max_length=10)
     integration = models.IntegerField("积分",default=0,blank=True)
