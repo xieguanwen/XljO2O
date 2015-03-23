@@ -139,7 +139,7 @@ INSTALLED_APPS = (
     'user',
     'agents',
     'stores',
-    # 'active',
+    'active',
     # 'choose',
     # 'comment',
     # 'coupon',
