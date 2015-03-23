@@ -8,7 +8,7 @@ class User(models.Model):
     userName = models.CharField("用户名称",max_length=50)
     password = models.CharField("密码",max_length=32)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
-    rank = models.SmallIntegerField("等级",choices=RANK,default=RANK[1][0])
+    rank = models.SmallIntegerField("等级",choices=RANK,default=RANK[0][0])
     email = models.CharField("电子邮件",max_length=50)
     sex = models.CharField("性别",max_length=10)
     integration = models.IntegerField("积分",default=0,blank=True)
