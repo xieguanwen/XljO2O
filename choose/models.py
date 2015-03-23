@@ -12,7 +12,7 @@ class SelectedTheme(models.Model):
     def __unicode__(self):
         return self.name
     class Meta:
-        db_table = "selectedTheme"
+        db_table = "selected_theme"
         app_label = "choose"
 
 class StoreAward(models.Model):
@@ -25,7 +25,7 @@ class StoreAward(models.Model):
         return self.selectedThemeId
 
     class Meta:
-        db_table = "storeAward"
+        db_table = "store_award"
         app_label = "choose"
 
 class ClerkAward(models.Model):
@@ -38,5 +38,5 @@ class ClerkAward(models.Model):
         return self.clerkId
 
     class Meta:
-        db_table = "clerkAward"
+        db_table = "clerk_award"
         app_label = "choose"
