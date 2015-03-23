@@ -22,6 +22,8 @@ class User(models.Model):
     class Meta():
         db_table = "user"
         app_label = "user"
+        verbose_name = "用户"
+        verbose_name_plural = "用户"
 
 
 
