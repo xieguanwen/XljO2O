@@ -4,7 +4,7 @@ from stores.models import Store
 from stores.models import Clerk
 
 class SelectedTheme(models.Model):
-    id = models.AutoField(primary_key=True)
+    selectedThemeId = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
     period = models.IntegerField()
     type = models.SmallIntegerField()
@@ -16,9 +16,9 @@ class SelectedTheme(models.Model):
         app_label = "choose"
 
 class StoreAward(models.Model):
-    id = models.AutoField(primary_key=True)
-    storeId = models.ForeignKey(Store,db_column="id")
-    selectedThemeId = models.ForeignKey(SelectedTheme,db_column="id")
+    storeAwardId = models.AutoField(primary_key=True)
+    storeId = models.ForeignKey(Store,db_column="storeId")
+    selectedThemeId = models.ForeignKey(SelectedTheme,db_column="selectedThemeId")
     overallScore = models.IntegerField()
 
     def __unicode__(self):
@@ -30,8 +30,8 @@ class StoreAward(models.Model):
 
 class ClerkAward(models.Model):
     id = models.AutoField(primary_key=True)
-    selectedThemeId = models.ForeignKey(SelectedTheme,db_column="id")
-    clerkId = models.ForeignKey(Clerk,db_column="id")
+    selectedThemeId = models.ForeignKey(SelectedTheme,db_column="selectedThemeId")
+    clerkId = models.ForeignKey(Clerk,db_column="clerkId")
     overallScore = models.IntegerField()
 
     def __unicode__(self):
