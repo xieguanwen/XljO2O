@@ -1,12 +1,9 @@
 import xadmin
-from xadmin import views
+from comment.models import Comment
 
-# class GlobalSetting(object):
-#     global_search_models = [Host, IDC]
-#     global_models_icon = {
-#         # Host: 'fa fa-laptop', IDC: 'fa fa-cloud'
-#     }
-#     menu_style = 'default'#'accordion'
-# xadmin.site.register(views.CommAdminView, GlobalSetting)
+class CommentAdmin(object):
+    list_display = ("commentId","subject")
+    list_display_links = ("subject",)
+    # search_fields = ()
 
-# xadmin.site.register(AccessRecord, AccessRecordAdmin)
+xadmin.site.register(Comment,CommentAdmin)
