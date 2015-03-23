@@ -34,7 +34,7 @@ class StoreAward(models.Model):
         verbose_name_plural = "店铺评选"
 
 class ClerkAward(models.Model):
-    id = models.AutoField("编号",primary_key=True)
+    clerkAwardId = models.AutoField("编号",primary_key=True)
     selectedThemeId = models.ForeignKey(SelectedTheme,db_column="selectedThemeId",verbose_name="主题")
     clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="店员")
     overallScore = models.IntegerField("综合分数")
