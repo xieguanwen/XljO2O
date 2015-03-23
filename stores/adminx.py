@@ -1,12 +1,17 @@
 import xadmin
-from xadmin import views
+from stores.models import Store
+from stores.models import Clerk
 
-# class GlobalSetting(object):
-#     global_search_models = [Host, IDC]
-#     global_models_icon = {
-#         # Host: 'fa fa-laptop', IDC: 'fa fa-cloud'
-#     }
-#     menu_style = 'default'#'accordion'
-# xadmin.site.register(views.CommAdminView, GlobalSetting)
+class StoreAdmin(object):
+    list_display = ("storeId","storeName")
+    list_display_links = ("storeName",)
+    # search_fields = ()
 
-# xadmin.site.register(AccessRecord, AccessRecordAdmin)
+xadmin.site.register(Store,StoreAdmin)
+
+class ClerkAdmin(object):
+    list_display = ("clerkId","name")
+    list_display_links = ("name",)
+    # search_fields = ()
+
+xadmin.site.register(Clerk,ClerkAdmin)
