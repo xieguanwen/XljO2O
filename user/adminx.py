@@ -18,7 +18,7 @@ xadmin.site.register(views.BaseAdminView, BaseSetting)
 class GlobalSetting(object):
     global_search_models = [User, Store , Agents]
     global_models_icon = {
-        User: 'fa fa-laptop', Store: 'fa fa-cloud'
+        User: 'fa fa-laptop', Store: 'fa fa-cloud',Agents: 'fa fa-cube'
     }
     menu_style = 'default'
 xadmin.site.register(views.CommAdminView, GlobalSetting)
