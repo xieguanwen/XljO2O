@@ -1,13 +1,25 @@
 import xadmin
-from xadmin import views
+from active.models import ActiveTemplate
+from active.models import Active
+from active.models import ActiveTop
 
+class ActiveTemplateAdmin(object):
+    list_display = ("activeTemplateId","name")
+    list_display_links = ("name",)
+    # search_fields = ()
 
-# class GlobalSetting(object):
-#     global_search_models = [Host, IDC]
-#     global_models_icon = {
-#         # Host: 'fa fa-laptop', IDC: 'fa fa-cloud'
-#     }
-#     menu_style = 'default'#'accordion'
-# xadmin.site.register(views.CommAdminView, GlobalSetting)
+xadmin.site.register(ActiveTemplate,ActiveTemplateAdmin)
 
-# xadmin.site.register(AccessRecord, AccessRecordAdmin)
+class ActiveAdmin(object):
+    list_display = ("activeId","subject")
+    list_display_links = ("subject",)
+    # search_fields = ()
+
+xadmin.site.register(Active,ActiveAdmin)
+
+class ActiveTopAdmin(object):
+    list_display = ("activeTopId","activeId")
+    list_display_links = ("activeId",)
+    # search_fields = ()
+
+xadmin.site.register(ActiveTop,ActiveTopAdmin)
