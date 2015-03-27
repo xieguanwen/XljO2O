@@ -3,7 +3,7 @@ import datetime
 from django.db import models
 
 class User(models.Model):
-    RANK = ((1,"店铺"),(2,"代理商"))
+    RANK = ((1,"代理商"),(2,"店铺"))
     userId = models.AutoField("用户编号",primary_key=True)
     userName = models.CharField("用户名称",max_length=50)
     password = models.CharField("密码",max_length=32)
