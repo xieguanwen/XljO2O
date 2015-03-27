@@ -4,11 +4,11 @@ from django.db import models
 from stores.models import Store
 
 class ActiveTemplate(models.Model):
-    activeTemplateId = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    fileName = models.CharField(max_length=50)
-    dirPath = models.CharField(max_length=100)
-    series = models.CharField(max_length=100)
+    activeTemplateId = models.AutoField("编号",primary_key=True)
+    name = models.CharField("名称",max_length=50)
+    fileName = models.CharField("文件名",max_length=50)
+    dirPath = models.CharField("显示目录",max_length=100)
+    series = models.CharField("系列",max_length=100)
 
     def __unicode__(self):
         return self.name
@@ -20,13 +20,14 @@ class ActiveTemplate(models.Model):
         verbose_name_plural = "活动模板"
 
 class Active(models.Model):
-    activeId = models.AutoField(primary_key=True)
-    storeId = models.ForeignKey(Store,db_column="storeId")
-    subject = models.CharField(max_length=200)
-    startTime = models.DateTimeField(default=datetime.datetime.now())
-    endTime = models.DateTimeField(default=datetime.datetime.now())
-    content = models.TextField()
-    activeTemplateId = models.ForeignKey(ActiveTemplate,db_column="activeTemplateId")
+    activeId = models.AutoField("编号",primary_key=True)
+    storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
+    subject = models.CharField("主题",max_length=200)
+    startTime = models.DateTimeField("开始时间",default=datetime.datetime.now())
+    endTime = models.DateTimeField("结束时间",default=datetime.datetime.now())
+    content = models.TextField("内容")
+    activeTemplateId = models.ForeignKey(ActiveTemplate,db_column="activeTemplateId",verbose_name="模板")
+    status = models.SmallIntegerField("状态",default=0,blank=True)
 
     def __unicode__(self):
         return self.subject
@@ -38,10 +39,10 @@ class Active(models.Model):
         verbose_name_plural = "活动"
 
 class ActiveTop(models.Model):
-    activeTopId = models.AutoField(primary_key=True)
-    activeId = models.ForeignKey(Active,db_column="id")
-    sort = models.IntegerField()
-    isDisplay = models.BooleanField()
+    activeTopId = models.AutoField("编号",primary_key=True)
+    activeId = models.ForeignKey("活动",Active,db_column="id")
+    sort = models.IntegerField("排序")
+    isDisplay = models.BooleanField("是否显示")
 
     def __unicode__(self):
         return self.sort;
