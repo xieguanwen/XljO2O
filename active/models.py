@@ -40,7 +40,7 @@ class Active(models.Model):
 
 class ActiveTop(models.Model):
     activeTopId = models.AutoField("编号",primary_key=True)
-    activeId = models.ForeignKey("活动",Active,db_column="id")
+    activeId = models.ForeignKey(Active,db_column="id",verbose_name="活动")
     sort = models.IntegerField("排序")
     isDisplay = models.BooleanField("是否显示")
 
