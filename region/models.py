@@ -3,7 +3,7 @@ from django.db import models
 
 class Region(models.Model):
     regionId = models.AutoField("编号",primary_key=True)
-    parentId = models.ForeignKey("self",db_column="regionId",verbose_name="父类编号")
+    parentId = models.ForeignKey("Region",db_column="regionId",verbose_name="父类编号")
     name = models.CharField("名称",max_length=50)
     type = models.SmallIntegerField("类型")
 
