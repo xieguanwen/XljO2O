@@ -16,6 +16,8 @@ class ActiveTemplate(models.Model):
     class Meta():
         db_table = "active_template"
         app_label = "active"
+        verbose_name = "活动模板"
+        verbose_name_plural = "活动模板"
 
 class Active(models.Model):
     activeId = models.AutoField(primary_key=True)
@@ -32,6 +34,8 @@ class Active(models.Model):
     class Meta():
         db_table = "active"
         app_label = "active"
+        verbose_name = "活动"
+        verbose_name_plural = "活动"
 
 class ActiveTop(models.Model):
     activeTopId = models.AutoField(primary_key=True)
@@ -45,3 +49,5 @@ class ActiveTop(models.Model):
     class Meta:
         db_table = "active_top"
         app_label = "active"
+        verbose_name = "活动置顶"
+        verbose_name_plural = "活动置顶"
