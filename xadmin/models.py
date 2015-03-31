@@ -64,7 +64,6 @@ class Bookmark(models.Model):
     class Meta:
         verbose_name = _(u'Bookmark')
         verbose_name_plural = _('Bookmarks')
-        app_label = "bookmark"
 
 class JSONEncoder(DjangoJSONEncoder):
     def default(self, o):
@@ -100,7 +99,6 @@ class UserSettings(models.Model):
     class Meta:
         verbose_name = _(u'User Setting')
         verbose_name_plural = _('User Settings')
-        app_label = "userSettings"
 
 
 class UserWidget(models.Model):
@@ -136,4 +134,3 @@ class UserWidget(models.Model):
     class Meta:
         verbose_name = _(u'User Widget')
         verbose_name_plural = _('User Widgets')
-        app_label = "UserWidget"
