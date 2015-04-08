@@ -136,7 +136,7 @@ INSTALLED_APPS = (
     'xadmin',
     'crispy_forms',
     'ckeditor',
-    'user',
+    'xiaolajiao.user',
     'xiaolajiao.agents',
     'xiaolajiao.stores',
     'xiaolajiao.active',
