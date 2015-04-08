@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     'xiaolajiao.favorite',
     'xiaolajiao.notice',
     'xiaolajiao.region',
+    'api',
 )
 
 DATE_FORMAT = 'Y-m-d'
