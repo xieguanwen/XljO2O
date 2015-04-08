@@ -1,7 +1,10 @@
 # -*- coding: Utf-8 -*-
 import datetime
+
 from django.db import models
-from stores.models import Store
+
+from xiaolajiao.stores.models import Store
+
 
 class ActiveTemplate(models.Model):
     activeTemplateId = models.AutoField("编号",primary_key=True)

@@ -1,6 +1,6 @@
 import xadmin
-from stores.models import Store
-from stores.models import Clerk
+from xiaolajiao.stores.models import Store
+from xiaolajiao.stores.models import Clerk
 
 class StoreAdmin(object):
     list_display = ("storeId","storeName")

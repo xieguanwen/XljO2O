@@ -1,6 +1,6 @@
 import xadmin
-from coupon.models import ECouponCat
-from coupon.models import ElectronicCoupons
+from xiaolajiao.coupon.models import ECouponCat
+from xiaolajiao.coupon.models import ElectronicCoupons
 
 class ECouponCatAdmin(object):
     list_display = ("ECouponCatId","name")

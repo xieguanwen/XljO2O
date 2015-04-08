@@ -1,7 +1,7 @@
 import xadmin
-from choose.models import SelectedTheme
-from choose.models import ClerkAward
-from choose.models import StoreAward
+from xiaolajiao.choose.models import SelectedTheme
+from xiaolajiao.choose.models import ClerkAward
+from xiaolajiao.choose.models import StoreAward
 
 class SelectedThemeAdmin(object):
     list_display = ("selectedThemeId","name")

@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import datetime
+
 from django.db import models
-from agents.models import Agents
-from region.models import Region
+
+from xiaolajiao.agents.models import Agents
 from user.models import User
+
 
 class Store(models.Model):
     storeId = models.AutoField("店铺编号",primary_key=True)

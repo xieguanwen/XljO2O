@@ -1,8 +1,8 @@
 import xadmin
 from xadmin import views
-from models import User
-from stores.models import Store
-from agents.models import Agents
+from xiaolajiao.user.models import User
+from xiaolajiao.stores.models import Store
+from xiaolajiao.agents.models import Agents
 
 # class MainDashboard(object):
 #     widgets = [

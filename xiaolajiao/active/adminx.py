@@ -1,7 +1,7 @@
 import xadmin
-from active.models import ActiveTemplate
-from active.models import Active
-from active.models import ActiveTop
+from xiaolajiao.active.models import ActiveTemplate
+from xiaolajiao.active.models import Active
+from xiaolajiao.active.models import ActiveTop
 
 class ActiveTemplateAdmin(object):
     list_display = ("activeTemplateId","name")

@@ -1,6 +1,6 @@
 import xadmin
-from notice.models import NoticeCat
-from notice.models import Notice
+from xiaolajiao.notice.models import NoticeCat
+from xiaolajiao.notice.models import Notice
 
 class NoticeCatAdmin(object):
     list_display = ("noticeCatId","name")

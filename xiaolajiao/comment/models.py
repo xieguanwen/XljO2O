@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from stores.models import Store
-from stores.models import Clerk
+
+from xiaolajiao.stores.models import Store
+from xiaolajiao.stores.models import Clerk
+
 
 class Comment(models.Model):
     commentId = models.AutoField("",primary_key=True)

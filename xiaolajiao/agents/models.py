@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 import datetime
+
 from django.db import models
-from user.models import User
+
+from xiaolajiao.user.models import User
+
 
 class Agents(models.Model):
     agentsId = models.AutoField("代理商编号",primary_key=True)

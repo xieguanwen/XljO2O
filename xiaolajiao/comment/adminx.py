@@ -1,5 +1,5 @@
 import xadmin
-from comment.models import Comment
+from xiaolajiao.comment.models import Comment
 
 class CommentAdmin(object):
     list_display = ("commentId","subject")

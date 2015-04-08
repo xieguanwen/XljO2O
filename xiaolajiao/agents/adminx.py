@@ -1,5 +1,5 @@
 import xadmin
-from agents.models import Agents
+from xiaolajiao.agents.models import Agents
 
 class AgentsAdmin(object):
     list_display = ("agentsId","companyName")

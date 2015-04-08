@@ -1,5 +1,5 @@
 import xadmin
-from region.models import Region
+from xiaolajiao.region.models import Region
 
 class RegionAdmin(object):
     list_display = ("regionId","name")

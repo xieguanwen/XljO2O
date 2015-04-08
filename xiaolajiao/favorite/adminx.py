@@ -1,5 +1,5 @@
 import xadmin
-from favorite.models import Favorite
+from xiaolajiao.favorite.models import Favorite
 
 class FavoriteAdmin(object):
     list_display = ("favoriteId","user_id")

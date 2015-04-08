@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from stores.models import Store
-from stores.models import Clerk
+
+from xiaolajiao.stores.models import Store
+from xiaolajiao.stores.models import Clerk
+
 
 class Favorite(models.Model):
     favoriteId = models.AutoField("编号",primary_key=True)

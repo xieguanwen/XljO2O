@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from stores.models import Store
-from stores.models import Clerk
+
+from xiaolajiao.stores.models import Store
+from xiaolajiao.stores.models import Clerk
+
 
 class SelectedTheme(models.Model):
     TYPE = ((1,"周"),(2,"月"),(3,"年"))
