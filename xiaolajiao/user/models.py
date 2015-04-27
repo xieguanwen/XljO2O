@@ -16,6 +16,7 @@ class User(models.Model):
     visitCount = models.IntegerField("登录次数",blank=True)
     mobile = models.CharField("手机",max_length=18,unique=True)
     tel = models.CharField("电话",max_length=20,blank=True)
+    agentsId = models.IntegerField('代理商编号',blank=True,editable=True)
 
     def __unicode__(self):
         return self.userName

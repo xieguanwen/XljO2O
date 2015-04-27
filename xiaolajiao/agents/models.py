@@ -16,6 +16,10 @@ class Agents(models.Model):
     certificate = models.FileField("授权证书",upload_to="./images/uploads/")
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     tel = models.CharField("电话",max_length=30,blank=True)
+    status = models.SmallIntegerField('状态',help_text="0:未通过,1:通过",default=0,blank=True)
+    agentsRegion = models.CharField('代理地区',max_length=50,blank=True)
+    agentsNo = models.IntegerField('代理商维一编号',help_text="例如：只能用数字")
+
 
     def __unicode__(self):
         return self.companyName
