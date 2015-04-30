@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 import datetime
 from django.db import models
+from django.contrib.auth.hashers import make_password
+
+class passwordCharField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        pass
+
 
 class User(models.Model):
     RANK = ((1,"代理商"),(2,"店铺"))
     userId = models.AutoField("用户编号",primary_key=True)
     userName = models.CharField("用户名称",max_length=50)
-    password = models.CharField("密码",max_length=32)
+    password = models.CharField("密码",max_length=128)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     rank = models.SmallIntegerField("等级",choices=RANK,default=RANK[0][0])
     email = models.CharField("电子邮件",max_length=50)
@@ -18,9 +24,11 @@ class User(models.Model):
     tel = models.CharField("电话",max_length=20,blank=True)
     agentsId = models.IntegerField('代理商编号',blank=True,editable=True)
 
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+
     def __unicode__(self):
         return self.userName
-
 
     class Meta():
         db_table = "user"
