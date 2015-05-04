@@ -6,7 +6,7 @@ from xiaolajiao.stores.models import Clerk
 from xiaolajiao.active.models import Active
 
 class Favorite(models.Model):
-    favoriteId = models.AutoField("编号",primary_key=True)
+    clerkFavoriteId = models.AutoField("编号",primary_key=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     user_id = models.IntegerField("官网用户")
     favoriteMobile = models.CharField("点赞手机",max_length=20)
