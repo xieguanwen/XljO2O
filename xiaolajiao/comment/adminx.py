@@ -1,9 +1,17 @@
 import xadmin
-from xiaolajiao.comment.models import Comment
+from xiaolajiao.comment.models import StoreComment
+from xiaolajiao.comment.models import ActiveComment
 
-class CommentAdmin(object):
-    list_display = ("commentId","subject")
+
+class ActiveCommentAdmin(object):
+    list_display = ("activeCommentId","subject")
     list_display_links = ("subject",)
     # search_fields = ()
 
-xadmin.site.register(Comment,CommentAdmin)
+xadmin.site.register(ActiveComment,ActiveCommentAdmin)
+
+class StoreCommentAdmin(object):
+    list_display = ("storeCommentId","subject")
+    list_display_links = ("subject",)
+
+xadmin.site.register(StoreComment,StoreCommentAdmin)
