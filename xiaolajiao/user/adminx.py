@@ -25,7 +25,7 @@ xadmin.site.register(views.CommAdminView, GlobalSetting)
 
 
 class UserAdmin(object):
-    list_display = ("userId","userName")
+    list_display = ("userId","userName","email")
     list_display_links = ("userName",)
     search_fields = ("userName",)
 

@@ -1,8 +1,6 @@
 # -*- coding: Utf-8 -*-
 import datetime
-
 from django.db import models
-
 from xiaolajiao.stores.models import Store
 
 
@@ -26,11 +24,16 @@ class Active(models.Model):
     activeId = models.AutoField("编号",primary_key=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     subject = models.CharField("主题",max_length=200)
-    startTime = models.DateTimeField("开始时间",default=datetime.datetime.now())
-    endTime = models.DateTimeField("结束时间",default=datetime.datetime.now())
+    startTime = models.DateTimeField("开始时间",default=datetime.datetime.now(),blank=True)
+    endTime = models.DateTimeField("结束时间",default=datetime.datetime.now(),blank=True)
     content = models.TextField("内容")
-    activeTemplateId = models.ForeignKey(ActiveTemplate,db_column="activeTemplateId",verbose_name="模板")
+    # activeTemplateId = models.ForeignKey(ActiveTemplate,db_column="activeTemplateId",verbose_name="模板",blank=True)
     status = models.SmallIntegerField("状态",default=0,blank=True)
+    rank = models.SmallIntegerField("重要性",default=0,help_text="0:表示一般等级,1:重要等级")
+    sort = models.IntegerField("排序",default=0)
+    isDisplay = models.SmallIntegerField("是显示",default=0,help_text="0:显示,1:不显示")
+    visit = models.IntegerField("访问次数",default=0,blank=True)
+    addTime = models.DateTimeField("添增时间",default=datetime.datetime.now())
 
     def __unicode__(self):
         return self.subject
