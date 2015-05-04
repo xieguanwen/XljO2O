@@ -29,4 +29,8 @@ class UserAdmin(object):
     list_display_links = ("userName",)
     search_fields = ("userName",)
 
+    def get_model_form(self, **kwargs):
+        print('test test test')
+        return super(UserAdmin, self).get_model_form(**kwargs)
+
 xadmin.site.register(User,UserAdmin)
