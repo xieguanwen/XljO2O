@@ -9,7 +9,7 @@ from xiaolajiao.user.models import User
 class Agents(models.Model):
     agentsId = models.AutoField("代理商编号",primary_key=True)
     userId = models.ForeignKey(User,db_column="userId",verbose_name="用户名")
-    contact = models.CharField("联系人",max_length=50)
+    contact = models.CharField("联系人",max_length=50,blank=True)
     companyName = models.CharField("公司名称",max_length=50)
     license = models.FileField("营业执照",upload_to="./images/uploads/",blank=True)
     certificate = models.FileField("授权证书",upload_to="./images/uploads/",blank=True)
