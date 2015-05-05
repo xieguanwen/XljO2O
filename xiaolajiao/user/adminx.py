@@ -5,6 +5,7 @@ from xiaolajiao.user.models import User
 from xiaolajiao.stores.models import Store
 from xiaolajiao.agents.models import Agents
 from xiaolajiao.user.forms import UserCreationForm
+from xiaolajiao.user.forms import UserChangeForm
 
 # class MainDashboard(object):
 #     widgets = [
@@ -34,8 +35,8 @@ class UserAdmin(object):
     def get_model_form(self, **kwargs):
         if self.org_obj is None:
             self.form = UserCreationForm # 这个是添加的请求
-        # else:
-        #     self.form = None # 这个是修改的
+        else:
+            self.form = UserChangeForm # 这个是修改的
         return super(UserAdmin, self).get_model_form(**kwargs)
 
 xadmin.site.register(User,UserAdmin)
