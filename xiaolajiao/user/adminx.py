@@ -3,6 +3,7 @@ from xadmin import views
 from xiaolajiao.user.models import User
 from xiaolajiao.stores.models import Store
 from xiaolajiao.agents.models import Agents
+from xiaolajiao.user.forms import UserCreationForm
 
 # class MainDashboard(object):
 #     widgets = [
@@ -30,7 +31,10 @@ class UserAdmin(object):
     search_fields = ("userName",)
 
     def get_model_form(self, **kwargs):
-        print(self.org_obj)
+        if self.org_obj is None:
+            self.form = UserCreationForm # 这个是添加的请求
+        else:
+            self.form = None # 这个是修改的
         return super(UserAdmin, self).get_model_form(**kwargs)
 
 xadmin.site.register(User,UserAdmin)
