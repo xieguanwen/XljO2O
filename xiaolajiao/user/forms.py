@@ -19,7 +19,6 @@ class UserCreationForm(forms.ModelForm):
         return user
 
 class UserChangeForm(forms.ModelForm):
-    password = ReadOnlyPasswordHashField(label=_("Password"),help_text=_("不能修改密码"))
-
-    def clean_password(self):
-        return self.initial["password"]
+    password = forms.CharField(_("密码"),widget=forms.TextInput(attrs={'readonly':'readonly'}),)
+    class Meta:
+        Model = User
