@@ -19,6 +19,6 @@ class UserCreationForm(forms.ModelForm):
         return user
 
 class UserChangeForm(forms.ModelForm):
-    password = forms.CharField(_("密码"),widget=forms.Input(attrs={"readonly":"readonly"}))
+    password = forms.CharField(_("密码"))
     class Meta:
         Model = User
