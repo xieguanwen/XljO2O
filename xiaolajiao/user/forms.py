@@ -20,3 +20,7 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField(label=_("Password"),help_text=_("不能修改密码"))
+
+    class Meta:
+        model = User
+        fields = '__all__'
