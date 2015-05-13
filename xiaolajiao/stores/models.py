@@ -4,7 +4,7 @@ import datetime
 from django.db import models
 
 from xiaolajiao.agents.models import Agents
-from user.models import User
+from xiaolajiao.user.models import User
 
 
 class Store(models.Model):
