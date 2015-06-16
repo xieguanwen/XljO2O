@@ -6,7 +6,7 @@ from xiaolajiao.stores.models import Clerk
 
 
 class ActiveComment(models.Model):
-    ActiveCommentId = models.AutoField("",primary_key=True)
+    activeCommentId = models.AutoField("活动评论",primary_key=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     subject = models.CharField("主题",max_length=100)
     star = models.SmallIntegerField("分数")
