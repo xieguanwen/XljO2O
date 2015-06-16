@@ -145,8 +145,7 @@ INSTALLED_APPS = (
     'xiaolajiao.coupon',
     'xiaolajiao.favorite',
     'xiaolajiao.notice',
-    'xiaolajiao.region',
-    'mptt',
+    # 'xiaolajiao.region',
     # 'api',
 )
 
