@@ -1,2 +1,5 @@
 /.idea/
+/crispy_forms/
+/mptt/
+/xadmin/
 
