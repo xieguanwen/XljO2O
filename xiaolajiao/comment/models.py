@@ -12,7 +12,7 @@ class ActiveComment(models.Model):
     star = models.SmallIntegerField("分数")
     content = models.TextField("评论内容")
     user_id = models.IntegerField("官网用户")
-    commenterMobile = models.CharField("评论手机",max_length=20)
+    # commenterMobile = models.CharField("评论手机",max_length=20)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
