@@ -13,11 +13,19 @@ class Region(MPTTModel):
     def __unicode__(self):
         return self.name
 
-    class Meta:
+    class MPTTMeta:
+        level_attr = 'mptt_level'
+        order_insertion_by=['name']
         db_table = "region"
         app_label = "region"
         verbose_name = "地区"
         verbose_name_plural = "地区"
+
+    # class Meta:
+    #     db_table = "region"
+    #     app_label = "region"
+    #     verbose_name = "地区"
+    #     verbose_name_plural = "地区"
 
 
 
