@@ -13,7 +13,7 @@ xadmin.site.register(ActiveTemplate,ActiveTemplateAdmin)
 class ActiveAdmin(object):
     list_display = ("activeId","subject")
     list_display_links = ("subject",)
-    # search_fields = ()
+    search_fields = ("subject",)
 
 xadmin.site.register(Active,ActiveAdmin)
 

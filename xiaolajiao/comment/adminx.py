@@ -6,7 +6,7 @@ from xiaolajiao.comment.models import ActiveComment
 class ActiveCommentAdmin(object):
     list_display = ("activeCommentId","subject")
     list_display_links = ("subject",)
-    # search_fields = ()
+    # search_fields = ("subject",)
 
 xadmin.site.register(ActiveComment,ActiveCommentAdmin)
 
