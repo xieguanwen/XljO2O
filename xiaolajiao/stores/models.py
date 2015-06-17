@@ -12,7 +12,7 @@ class Store(models.Model):
     LOG_TYPE = ((0,"审核中"),(1,"营业中"))
     storeId = models.AutoField("店铺编号",primary_key=True)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理")
-    userId = models.ForeignKey(User,db_column="userId",verbose_name="用户")
+    userId = models.ForeignKey(User,db_column="userId",verbose_name="会员")
     storeName = models.CharField("门店名称",max_length=150)
     # province = models.ManyToOneRel(Region)
     # city = models.ManyToOneRel(Region)

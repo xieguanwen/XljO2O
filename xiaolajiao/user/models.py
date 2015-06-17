@@ -10,8 +10,8 @@ class passwordCharField(models.CharField):
 
 class User(models.Model):
     RANK = ((1,"代理商"),(2,"店铺"))
-    userId = models.AutoField("用户编号",primary_key=True)
-    userName = models.CharField("用户名称",max_length=50)
+    userId = models.AutoField("会员编号",primary_key=True)
+    userName = models.CharField("会员名称",max_length=50)
     password = models.CharField("密码",max_length=128)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     rank = models.SmallIntegerField("等级",choices=RANK,default=RANK[0][0])
@@ -33,8 +33,8 @@ class User(models.Model):
     class Meta():
         db_table = "user"
         app_label = "user"
-        verbose_name = "用户"
-        verbose_name_plural = "用户"
+        verbose_name = "会员"
+        verbose_name_plural = "会员"
 
 
 
