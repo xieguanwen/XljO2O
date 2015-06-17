@@ -52,7 +52,7 @@ class Clerk(models.Model):
     clerkId = models.AutoField("编号",primary_key=True)
     name = models.CharField("名字",max_length=50)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
-    sex = models.CharField("性别",max_length=10,blank=True,choices=SEX,default=SEX[0]["男"])
+    sex = models.CharField("性别",max_length=10,blank=True,choices=SEX,default="男")
     constellation = models.CharField("星座",max_length=15,blank=True)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     isCelebrity = models.SmallIntegerField("明星店员")
