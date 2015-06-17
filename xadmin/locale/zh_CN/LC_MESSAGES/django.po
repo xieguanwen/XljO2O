@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xadmin-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-10 10:31+0800\n"
-"PO-Revision-Date: 2013-11-20 10:21+0000\n"
+"PO-Revision-Date: 2015-06-17 14:36+0800\n"
 "Last-Translator: sshwsfc <sshwsfc@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xadmin/language/zh_CN/)\n"
 "Language: zh_CN\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.1\n"
 
 #: filters.py:157 filters.py:189 filters.py:401 filters.py:451
 msgid "All"
@@ -65,7 +66,7 @@ msgstr "今年"
 
 #: forms.py:10
 msgid "Please enter the correct username and password for a staff account. Note that both fields are case-sensitive."
-msgstr "请输入正确的用户名和密码来登陆您的管理账户。请注意用户名和密码均为大小写相关。"
+msgstr "请输入正确的管理员名和密码来登陆您的管理账户。请注意管理员名和密码均为大小写相关。"
 
 #: forms.py:21
 msgid "Please log in again, because your session has expired."
@@ -74,7 +75,7 @@ msgstr "请重新登录，因为你的会话已经过期。"
 #: forms.py:41
 #, python-format
 msgid "Your e-mail address is not your username. Try '%s' instead."
-msgstr "你的 e-mail 地址不是你的用户名。换 '%s' 试试。"
+msgstr "你的 e-mail 地址不是你的管理员名。换 '%s' 试试。"
 
 #: models.py:47
 msgid "Title"
@@ -82,7 +83,7 @@ msgstr "标题"
 
 #: models.py:48 models.py:87 models.py:106
 msgid "user"
-msgstr "用户"
+msgstr "管理员"
 
 #: models.py:49
 msgid "Url Name"
@@ -114,11 +115,11 @@ msgstr "设置内容"
 
 #: models.py:101
 msgid "User Setting"
-msgstr "用户设置"
+msgstr "管理员设置"
 
 #: models.py:102
 msgid "User Settings"
-msgstr "用户设置"
+msgstr "管理员设置"
 
 #: models.py:107
 msgid "Page"
@@ -134,11 +135,11 @@ msgstr "Widget参数"
 
 #: models.py:136
 msgid "User Widget"
-msgstr "用户小组件"
+msgstr "管理员小组件"
 
 #: models.py:137
 msgid "User Widgets"
-msgstr "用户小组件"
+msgstr "管理员小组件"
 
 #: widgets.py:48
 msgid "Now"
@@ -288,7 +289,7 @@ msgstr "书签"
 
 #: plugins/bookmark.py:173
 msgid "Bookmark Widget, can show user's bookmark list data in widget."
-msgstr "书签组件，展示用户书签页内容。"
+msgstr "书签组件，展示管理员书签页内容。"
 
 #: plugins/chart.py:24
 msgid "Show models simple chart."
@@ -393,7 +394,7 @@ msgstr "图标"
 
 #: plugins/passwords.py:64
 msgid "Forgotten your password or username?"
-msgstr "忘记了您的密码或用户名？"
+msgstr "忘记了您的密码或管理员名？"
 
 #: plugins/quickform.py:77
 #, python-format
@@ -607,7 +608,7 @@ msgstr "请访问该页面并选择一个新密码："
 
 #: templates/xadmin/auth/password_reset/email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr "你的用户名，如果已忘记的话："
+msgstr "你的管理员名，如果已忘记的话："
 
 #: templates/xadmin/auth/password_reset/email.html:10
 msgid "Thanks for using our site!"
@@ -636,11 +637,11 @@ msgstr "重设我的密码"
 
 #: templates/xadmin/auth/user/add_form.html:6
 msgid "First, enter a username and password. Then, you'll be able to edit more user options."
-msgstr "首先，输入一个用户名和密码。然后，你就可以编辑更多的用户选项。"
+msgstr "首先，输入一个管理员名和密码。然后，你就可以编辑更多的管理员选项。"
 
 #: templates/xadmin/auth/user/add_form.html:8
 msgid "Enter a username and password."
-msgstr "输入用户名和"
+msgstr "输入管理员名和"
 
 #: templates/xadmin/auth/user/change_password.html:31
 #: templates/xadmin/views/batch_change_form.html:24
@@ -657,7 +658,7 @@ msgstr "输入你的新密码"
 #: templates/xadmin/auth/user/change_password.html:40
 #, python-format
 msgid "Enter a new password for the user <strong>%(username)s</strong>."
-msgstr "为用户 <strong>%(username)s</strong> 输入一个新的密码。"
+msgstr "为管理员 <strong>%(username)s</strong> 输入一个新的密码。"
 
 #: templates/xadmin/blocks/comm.top.theme.html:4
 msgid "Themes"
@@ -948,7 +949,7 @@ msgstr "添加小组件"
 
 #: templates/xadmin/views/invalid_setup.html:13
 msgid "Something's wrong with your database installation. Make sure the appropriate database tables have been created, and make sure the database is readable by the appropriate user."
-msgstr "你的数据库安装有误。确保已经创建了相应的数据库表，并确保数据库可被相关的用户读取。"
+msgstr "你的数据库安装有误。确保已经创建了相应的数据库表，并确保数据库可被相关的管理员读取。"
 
 #: templates/xadmin/views/logged_out.html:16
 msgid "Logout Success"
@@ -972,7 +973,7 @@ msgstr "请登录"
 
 #: templates/xadmin/views/login.html:52
 msgid "Username"
-msgstr "用户名"
+msgstr "管理员名"
 
 #: templates/xadmin/views/login.html:64
 msgid "Password"
@@ -1042,7 +1043,7 @@ msgstr "日期/时间"
 
 #: templates/xadmin/views/model_history.html:28
 msgid "User"
-msgstr "用户"
+msgstr "管理员"
 
 #: templates/xadmin/views/model_history.html:29
 msgid "Comment"
