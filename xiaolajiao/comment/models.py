@@ -25,6 +25,7 @@ class ActiveComment(models.Model):
         verbose_name_plural = "活动评论"
 
 class StoreComment(models.Model):
+    STATUS = ((0,"未审核"),(1,"已审核"))
     storeCommentId = models.AutoField("",primary_key=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="店员")
@@ -35,7 +36,7 @@ class StoreComment(models.Model):
     commenterMobile = models.CharField("评论手机",max_length=20)
     imei = models.CharField("IMEI码",max_length=20,blank=True)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
-    status = models.SmallIntegerField("状态",default=0,help_text="0:没有核对，1:已经核对")
+    status = models.SmallIntegerField("状态",default=STATUS[0][0],choices=STATUS,help_text="0:没有核对，1:已经核对")
 
     def __unicode__(self):
         return self.content
