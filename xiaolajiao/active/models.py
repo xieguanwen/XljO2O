@@ -2,6 +2,7 @@
 import datetime
 from django.db import models
 from xiaolajiao.stores.models import Store
+from ckeditor.fields import RichTextField
 
 
 class ActiveTemplate(models.Model):
@@ -26,7 +27,7 @@ class Active(models.Model):
     subject = models.CharField("主题",max_length=200)
     startTime = models.DateTimeField("开始时间",default=datetime.datetime.now(),blank=True)
     endTime = models.DateTimeField("结束时间",default=datetime.datetime.now(),blank=True)
-    content = models.TextField("内容")
+    content = RichTextField("内容")
     # activeTemplateId = models.ForeignKey(ActiveTemplate,db_column="activeTemplateId",verbose_name="模板",blank=True)
     status = models.SmallIntegerField("状态",default=0,blank=True)
     rank = models.SmallIntegerField("重要性",default=0,help_text="0:表示一般等级,1:重要等级")
