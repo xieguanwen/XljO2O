@@ -6,7 +6,7 @@ from xiaolajiao.stores.models import Clerk
 
 
 class ActiveComment(models.Model):
-    activeCommentId = models.AutoField("活动评论",primary_key=True)
+    activeCommentId = models.AutoField("活动评论编号",primary_key=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     subject = models.CharField("主题",max_length=100)
     star = models.SmallIntegerField("分数")
@@ -26,14 +26,14 @@ class ActiveComment(models.Model):
 
 class StoreComment(models.Model):
     STATUS = ((0,"未审核"),(1,"已审核"))
-    storeCommentId = models.AutoField("",primary_key=True)
+    storeCommentId = models.AutoField("店铺评论编号",primary_key=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="店员")
-    subject = models.CharField("主题",max_length=100)
+    subject = models.CharField("主题",max_length=100,blank=True)
     star = models.SmallIntegerField("分数")
     content = models.TextField("评论内容")
     user_id = models.IntegerField("官网用户")
-    commenterMobile = models.CharField("评论手机",max_length=20)
+    commenterMobile = models.CharField("评论手机",max_length=20,blank=True)
     imei = models.CharField("IMEI码",max_length=20,blank=True)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     status = models.SmallIntegerField("状态",default=STATUS[0][0],choices=STATUS,help_text="0:没有核对，1:已经核对")
