@@ -34,7 +34,7 @@ class Store(models.Model):
     longitude = models.CharField("经度", max_length=50, help_text="例如：120.73829749728",blank=True)
     latitude = models.CharField("纬度", max_length=50, help_text="例如：120.73829749728",blank=True)
     serviceTime = models.CharField("服务时间",max_length=100,help_text="例如：8:00-18:00",blank=True)
-    getThere = models.TextField("服务时间")
+    getThere = models.TextField("服务时间",blank=True)
     logType = models.SmallIntegerField("日志类型",choices=LOG_TYPE,default=LOG_TYPE[0][0],help_text="0：申请,1：修改")
 
     def __unicode__(self):

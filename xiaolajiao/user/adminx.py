@@ -30,7 +30,7 @@ xadmin.site.register(views.CommAdminView, GlobalSetting)
 class UserAdmin(object):
     list_display = ("userId","userName","email")
     list_display_links = ("userName",)
-    search_fields = ("userName",)
+    search_fields = ("userName","mobile")
 
     def get_model_form(self, **kwargs):
         if self.org_obj is None:

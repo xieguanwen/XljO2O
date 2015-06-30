@@ -6,6 +6,7 @@ class StoreAdmin(object):
     list_display = ("storeId","storeName")
     list_display_links = ("storeName",)
     search_fields = ("storeName",)
+    list_filter = ("status",)
 
 xadmin.site.register(Store,StoreAdmin)
 
