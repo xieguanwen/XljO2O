@@ -2,6 +2,8 @@ import xadmin
 from xiaolajiao.stores.models import Store
 from xiaolajiao.stores.models import Clerk
 from xiaolajiao.stores.models import StoreTemp
+from xiaolajiao.stores.forms import StoresTempChangeForm;
+
 
 class StoreAdmin(object):
     list_display = ("storeId","storeName")
@@ -16,6 +18,13 @@ class StoreTempAdmin(object):
     list_display_links = ("storeName",)
     search_fields = ("storeName",)
     list_filter = ("status",)
+
+    def get_model_form(self, **kwargs):
+        if self.org_obj:
+            self.form = StoresTempChangeForm
+        return super(StoreTempAdmin, self).get_model_form(**kwargs)
+
+
 
 xadmin.site.register(StoreTemp,StoreTempAdmin)
 
