@@ -85,8 +85,8 @@ class StoreTemp(models.Model):
     class Meta:
         db_table = "store_temp"
         app_label = "stores"
-        verbose_name = "店铺"
-        verbose_name_plural = "店铺"
+        verbose_name = "审核店铺"
+        verbose_name_plural = "审核店铺"
 
 
 
