@@ -12,6 +12,7 @@ class StoresTempChangeForm(forms.ModelForm):
             print storesTemp.logType
             print storesTemp.storeId
             print storesTemp.storeTempId
+            print "dddd"
             storesTemp.save()
         return storesTemp
 
