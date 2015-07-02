@@ -6,4 +6,4 @@ class RegionAdmin(object):
     list_display_links = ("name",)
     # search_fields = ()
 
-xadmin.site.register(Region,RegionAdmin)
+# xadmin.site.register(Region,RegionAdmin)

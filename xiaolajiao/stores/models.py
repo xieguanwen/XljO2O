@@ -2,9 +2,11 @@
 import datetime
 
 from django.db import models
-
 from xiaolajiao.agents.models import Agents
 from xiaolajiao.user.models import User
+from xiaolajiao.region.models import Region
+from xiaolajiao.region.models import City
+from xiaolajiao.region.models import Province
 
 
 class Store(models.Model):
@@ -14,12 +16,12 @@ class Store(models.Model):
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理")
     userId = models.ForeignKey(User,db_column="userId",verbose_name="会员")
     storeName = models.CharField("门店名称",max_length=150)
-    # province = models.ManyToOneRel(Region)
-    # city = models.ManyToOneRel(Region)
-    # region = models.ManyToOneRel(Region)
-    province = models.IntegerField("省")
-    city = models.IntegerField("市")
-    region = models.IntegerField("地区")
+    province = models.ForeignKey(Province,db_column="region_id",verbose_name="省")
+    city = models.ForeignKey(City,db_column="region_id",verbose_name="市")
+    region = models.ForeignKey(Region,db_column="region_id",verbose_name="地区")
+    # province = models.IntegerField("省")
+    # city = models.IntegerField("市")
+    # region = models.IntegerField("地区")
     street = models.CharField("街道",max_length=200,blank=True)
     address = models.CharField("地址",max_length=255)
     tel = models.CharField("电话",max_length=20,blank=True)
@@ -36,6 +38,7 @@ class Store(models.Model):
     serviceTime = models.CharField("服务时间",max_length=100,help_text="例如：8:00-18:00",blank=True)
     getThere = models.TextField("服务时间",blank=True)
     logType = models.SmallIntegerField("日志类型",choices=LOG_TYPE,default=LOG_TYPE[0][0],help_text="0：申请,1：修改")
+    isOfficial = models.SmallIntegerField("是否官方",choices=((0,"非官方"),(1,"官方")),default=0)
 
     def __unicode__(self):
         return self.storeName
