@@ -11,7 +11,7 @@ from xiaolajiao.region.models import Province
 
 class Store(models.Model):
     STATUS = ((0,"审核中"),(1,"营业中"),(2,"已停业"))
-    LOG_TYPE = ((0,"审核中"),(1,"营业中"))
+    LOG_TYPE = ((0,"审请"),(1,"修改"))
     storeId = models.AutoField("店铺编号",primary_key=True)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理")
     userId = models.ForeignKey(User,db_column="userId",verbose_name="会员")
@@ -37,7 +37,7 @@ class Store(models.Model):
     latitude = models.CharField("纬度", max_length=50, help_text="例如：120.73829749728",blank=True)
     serviceTime = models.CharField("服务时间",max_length=100,help_text="例如：8:00-18:00",blank=True)
     getThere = models.TextField("服务时间",blank=True)
-    logType = models.SmallIntegerField("日志类型",choices=LOG_TYPE,default=LOG_TYPE[0][0],help_text="0：申请,1：修改")
+    logType = models.SmallIntegerField("日志类型",choices=LOG_TYPE,default=LOG_TYPE[0][0],help_text="0：申请,1：修改",editable=False)
     isOfficial = models.SmallIntegerField("是否官方",choices=((0,"非官方"),(1,"官方")),default=0)
 
     def __unicode__(self):
@@ -52,7 +52,7 @@ class Store(models.Model):
 
 class StoreTemp(models.Model):
     STATUS = ((0,"审核中"),(1,"营业中"),(2,"已停业"))
-    LOG_TYPE = ((0,"审核中"),(1,"营业中"))
+    LOG_TYPE = ((0,"审请"),(1,"修改"))
     storeTempId = models.AutoField("店铺临时编号",primary_key=True)
     storeId = models.IntegerField("店铺编号",blank=True)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理")

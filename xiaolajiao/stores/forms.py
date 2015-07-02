@@ -10,6 +10,8 @@ class StoresTempChangeForm(forms.ModelForm):
         storesTemp = super(StoresTempChangeForm, self).save(commit=False)
         if commit:
             print storesTemp.logType
+            print storesTemp.storeId
+            print storesTemp.storeTempId
             storesTemp.save()
         return storesTemp
 
