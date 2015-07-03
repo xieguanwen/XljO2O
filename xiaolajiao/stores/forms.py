@@ -11,6 +11,7 @@ class StoresTempChangeForm(forms.ModelForm):
         storesTemp = super(StoresTempChangeForm, self).save(commit=False)
         logging.basicConfig(filename = "/tmp/xiaolajiao.log", level = logging.INFO)
         logging.info(storesTemp.logType)
+        logging.debug(storesTemp.storeId)
         if commit:
             storesTemp.save()
         return storesTemp
