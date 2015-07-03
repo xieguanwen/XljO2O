@@ -11,9 +11,11 @@ class StoresTempChangeForm(forms.ModelForm):
         storesTemp = super(StoresTempChangeForm, self).save(commit=False)
         myLog = logging.getLogger("myLog")
         myLog.setLevel(logging.INFO)
-        myLog.addHandler(logging.FileHandler("/tmp/xiaolajiao.log"))
+        fh = logging.FileHandler("/tmp/xiaolajiao.log")
+        myLog.addHandler(fh)
         myLog.info("kkkk")
         myLog.info(storesTemp.logType)
+        fh.close()
         if commit:
             myLog.info(storesTemp.logType)
             myLog.info(storesTemp)
