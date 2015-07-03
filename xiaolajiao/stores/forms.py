@@ -9,7 +9,8 @@ class StoresTempChangeForm(forms.ModelForm):
 
     def save(self, commit=True):
         storesTemp = super(StoresTempChangeForm, self).save(commit=False)
-        logging.info(storesTemp,filename="/tmp/xiaoljiao.log")
+        logging.FileHandler("/tmp/xiaolajiao.log")
+        logging.info("dddd")
         if commit:
             storesTemp.save()
         return storesTemp
