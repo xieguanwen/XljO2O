@@ -44,7 +44,7 @@ class StoresTempChangeForm(forms.ModelForm):
             logging.info(store.pk)
             storesTemp.storeId = store.pk
         else:
-            pass
+            pass # @todo 还没有个要求
             # store = Store.objects.get(storeId = storesTemp.storeId)
             # logging.info(store)
         if commit:
