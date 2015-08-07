@@ -1,4 +1,8 @@
-import xiaolajiao.statistics.views
-from django.conf.urls import patterns, include, url
+import views
+from django.conf.urls import url
+
+urlpatterns = [
+    url('^index[/]$',views.index,name="index"),
+]
 
 

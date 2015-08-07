@@ -4,7 +4,7 @@ import sys
 import os.path
 
 reload(sys)
-# sys.setdefaultencoding('utf-8')
+sys.setdefaultencoding('utf-8')
 gettext = lambda s: s
 
 PROJECT_ROOT = os.path.join(
@@ -119,13 +119,6 @@ ROOT_URLCONF = 'XljO2O.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'XljO2O.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, "templates"),
-)
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,6 +143,13 @@ INSTALLED_APPS = (
     'logging'
     # 'api',
 )
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, "templates"),
+)
+
 
 DATE_FORMAT = 'Y-m-d'
 DATETIME_FORMAT = 'Y-m-d H:i'

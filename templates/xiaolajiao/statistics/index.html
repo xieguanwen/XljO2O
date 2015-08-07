@@ -1,8 +1,67 @@
-{% extends 'xadmin/base.html' %}
+{% extends 'xiaolajiao/base.html' %}
 
 {% load url from future %}
 {% load i18n %}
+{% load xadmin_tags %}
+{% block bodyclass %}container{% endblock %}
 
 {% block body %}
-<div class="text-info">{% trans 'test' %}</div>
+<header>
+    <div class="panel">
+        <div class="panel-heading text-center">{% trans 'statistics head' %}</div>
+        <form name="form1" action="" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-1 col-sm-1"><input type="text" placeholder="2015-05-15" value="{{ startDate.0 }}" id="startpicker" name="startDate"></div>
+            <div class="col-md-1 col-sm-1 col-md-offset-1"><input type="text" placeholder="2015-05-15" value="{{ endDate.0 }}" id="endpicker" name="endDate"></div>
+            <div class="col-md-1 col-sm-1 col-md-offset-1"><input type="submit" name="submit" value="{% trans 'submit' %}"></div>
+        </div>
+        </form>
+    </div>
+</header>
+<table class="table text-center">
+    <thead>
+    <tr>
+        <th>{% trans 'Province' %}</th>
+        <th>{% trans 'Number of city' %}</th>
+        <th>{% trans 'The number of villages and towns' %}</th>
+        <th>{% trans 'Number of stores' %}</th>
+        <th>{% trans 'New stores' %}</th>
+        <th>{% trans 'New City' %}</th>
+        <th>{% trans 'New Town' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ endDate.0 }}</td>
+    </tr>
+    </tbody>
+</table>
+<div class="panel"></div>
+<table class="table text-center">
+    <thead>
+    <tr>
+        <th>{% trans 'Provincial Generation' %}</th>
+        <th>{% trans 'Number of city' %}</th>
+        <th>{% trans 'Increasing the number of stores' %}</th>
+        <th>{% trans 'Week increase the number of stores' %}</th>
+        <th>{% trans 'It may increase the number of stores' %}</th>
+    </tr>
+    </thead>
+</table>
 {% endblock body %}
+
+{% block extrabody %}
+    <script src="{% static 'xadmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script type="text/javascript">
+        $(function(){
+            var myDate = new Date();
+            $('#startpicker').datepicker({
+                format: 'yyyy/mm/dd'
+            });
+            $('#endpicker').datepicker({
+                format: 'yyyy/mm/dd'
+            });
+        });
+    </script>
+{% endblock %}
