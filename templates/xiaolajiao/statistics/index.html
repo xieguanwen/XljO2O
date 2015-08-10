@@ -12,8 +12,8 @@
         <form name="form1" action="" method="post">
         {% csrf_token %}
         <div class="row">
-            <div class="col-md-1 col-sm-1"><input type="text" placeholder="2015-05-15" value="{{ startDate.0 }}" id="startpicker" name="startDate"></div>
-            <div class="col-md-1 col-sm-1 col-md-offset-1"><input type="text" placeholder="2015-05-15" value="{{ endDate.0 }}" id="endpicker" name="endDate"></div>
+            <div class="col-md-1 col-sm-1"><input type="text" placeholder="2015/05/15" value="{{ startDate.0 }}" id="startpicker" name="startDate"></div>
+            <div class="col-md-1 col-sm-1 col-md-offset-1"><input type="text" placeholder="2015/05/15" value="{{ endDate.0 }}" id="endpicker" name="endDate"></div>
             <div class="col-md-1 col-sm-1 col-md-offset-1"><input type="submit" name="submit" value="{% trans 'submit' %}"></div>
         </div>
         </form>
@@ -32,9 +32,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>{{ endDate.0 }}</td>
+    {% for statistics in data %}
+        <tr>
+            <td>{{ statistics.provinceName }}</td>
+            <td>{{ statistics.numberOfCity }}</td>
+            <td>{{ statistics.numberOfTowns }}</td>
+            <td>{{ statistics.numberOfStores }}</td>
+            <td>{{ statistics.newStores }}</td>
+            <td>{{ statistics.newCity }}</td>
+            <td>{{ statistics.newTown }}</td>
     </tr>
+    {% endfor %}
     </tbody>
 </table>
 <div class="panel"></div>
