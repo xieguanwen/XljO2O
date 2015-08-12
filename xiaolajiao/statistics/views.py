@@ -3,7 +3,7 @@ import csv
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from django.db import connection
-from models import StoreData
+from models import StoreData,AgentsData
 from django.http.response import HttpResponse
 
 def index(request):
@@ -38,3 +38,7 @@ def downloadcsv(request):
     dictWriter.writerow(fieldnames)
     dictWriter.writerows(rows)
     return response
+
+def agents(request):
+    agents = AgentsData()
+    return render_to_response('xiaolajiao/statistics/agents.html',{'data':agents.statisticsAgents()})

@@ -1,5 +1,7 @@
+import datetime
 from django.db import connection
 from xiaolajiao.region.models import Province
+from xiaolajiao.agents.models import Agents
 
 class StoreData(object):
     endDate = ''
@@ -105,4 +107,40 @@ class StoreData(object):
         row = self.cursor.fetchall()
         return row
 
+class AgentsData(object):
+    cursor = None
+    data = list()
+    toDay = None
+
+    def __init__(self):
+        self.data = list()
+        self.cursor = connection.cursor()
+        self.toDay = datetime.datetime.today()
+
+    def statisticsAgents(self):
+        agents = Agents.objects.filter(status=1)
+        for agent in agents:
+            aDict = dict()
+            aDict.setdefault("agentsName",agent.companyName)
+            aDict.setdefault("numberOfStores",self.numberOfStores(agent.agentsId))
+            aDict.setdefault("increasingOfStores",self.increaseOfStores(agent.agentsId))
+            aDict.setdefault("weekIncreaseOfStores",self.increaseOfStores(agent.agentsId,7))
+            aDict.setdefault("monthIncreaseOfStores",self.increaseOfStores(agent.agentsId,30))
+            self.data.append(aDict)
+        return self.data
+
+    def numberOfStores(self,agentsId):
+        sql = """ SELECT COUNT(*) FROM store WHERE agentsId = %s AND status = 1"""
+        param = [agentsId]
+        return self.sqlQueryOne(sql,param)
+
+    def increaseOfStores(self,agentsId,days = 1):
+        sql = """ SELECT COUNT(*) FROM store WHERE agentsId = %s AND status = 1 AND addTime>%s AND addTime<%s"""
+        param = [agentsId,self.toDay,(self.toDay+datetime.timedelta(days))]
+        return self.sqlQueryOne(sql,param)
+
+    def sqlQueryOne(self,sql,param):
+        self.cursor.execute(sql,param)
+        row = self.cursor.fetchone()
+        return row[0]
 

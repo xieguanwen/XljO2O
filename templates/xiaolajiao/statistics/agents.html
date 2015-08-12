@@ -1,0 +1,47 @@
+{% extends 'xiaolajiao/base.html' %}
+
+{% load url from future %}
+{% load i18n %}
+{% load xadmin_tags %}
+{% block bodyclass %}container{% endblock %}
+
+{% block body %}
+<div class="panel">{% trans 'agents statistics' %}</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>{% trans 'Provincial Generation' %}</th>
+        <th>{% trans 'Number of city' %}</th>
+        <th>{% trans 'Increasing the number of stores' %}</th>
+        <th>{% trans 'Week increase the number of stores' %}</th>
+        <th>{% trans 'It may increase the number of stores' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for agent in data %}
+        <tr>
+            <td>{{ agent.agentsName }}</td>
+            <td>{{ agent.numberOfStores }}</td>
+            <td>{{ agent.increasingOfStores }}</td>
+            <td>{{ agent.weekIncreaseOfStores }}</td>
+            <td>{{ agent.monthIncreaseOfStores }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
+
+{% block extrabody %}
+    <script src="{% static 'xadmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+    <script type="text/javascript">
+        $(function(){
+            var myDate = new Date();
+            $('#startpicker').datepicker({
+                format: 'yyyy/mm/dd'
+            });
+            $('#endpicker').datepicker({
+                format: 'yyyy/mm/dd'
+            });
+        });
+    </script>
+{% endblock %}
