@@ -3,8 +3,8 @@ from xiaolajiao.statistics import urls as statisticsUrls
 # Uncomment the next two lines to enable the admin:
 import xadmin
 
-from xadmin.plugins import xversion
-xversion.register_models()
+# from xadmin.plugins import xversion
+# xversion.register_models()
 
 urlpatterns = patterns('',
     url(r'^', include(xadmin.site.urls)),

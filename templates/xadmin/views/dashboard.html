@@ -25,6 +25,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="table"><a href="/statistics/index/">{% trans 'statistics head' %}</a> | <a href="/statistics/agents">{% trans 'agents statistics' %}</a></div>
 <div class="dashboard row">
   {% for c in columns %}
   <div class="{{ c.0 }} column">
