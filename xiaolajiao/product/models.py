@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from xiaolajiao.agents.models import Agents
 from xiaolajiao.stores.models import Store
@@ -5,15 +6,15 @@ from xiaolajiao.stores.models import Clerk
 import datetime
 
 class ProductSales(models.Model):
-    productSalesId = models.AutoField("²úÆ·ÏúÊÛ±àºÅ",primary_key=True)
-    productSn = models.CharField("Íø±êÁÏºÅ",max_length=100)
-    productModel = models.CharField("ÈëÍøĞÍºÅ",max_length=100)
-    productName = models.CharField("Éè±¸Ãû³Æ",max_length=100)
-    agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="´úÀíÉÌ")
-    storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="µêÆÌ")
-    clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="µêÔ±")
+    productSalesId = models.AutoField("äº§å“é”€å”®ç¼–å·",primary_key=True)
+    productSn = models.CharField("ç½‘æ ‡æ–™å·",max_length=100)
+    productModel = models.CharField("å…¥ç½‘å‹å·",max_length=100)
+    productName = models.CharField("è®¾å¤‡åç§°",max_length=100)
+    agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="ä»£ç†å•†")
+    storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="åº—é“º")
+    clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="åº—å‘˜")
     tacCode = models.CharField("TAC",max_length=100)
-    addTime = models.DateTimeField("Ìí¼ÓÊ±¼ä",default=datetime.datetime.now())
+    addTime = models.DateTimeField("æ·»åŠ æ—¶é—´",default=datetime.datetime.now())
 
     def __unicode__(self):
         return self.productName
@@ -21,5 +22,5 @@ class ProductSales(models.Model):
     class Meta():
         db_table = "product_sales"
         app_label = "product"
-        verbose_name = "²úÆ·ÏúÊÛ"
-        verbose_name_plural = "²úÆ·ÏúÊÛ"
+        verbose_name = "äº§å“é”€å”®"
+        verbose_name_plural = "äº§å“é”€å”®"
