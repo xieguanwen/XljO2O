@@ -144,6 +144,7 @@ INSTALLED_APPS = (
     'xiaolajiao.notice',
     'xiaolajiao.region',
     'xiaolajiao.statistics',
+    'xiaolajiao.product',
     'logging'
     # 'api',
 )
