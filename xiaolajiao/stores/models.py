@@ -80,7 +80,7 @@ class StoreTemp(models.Model):
     isOfficial = models.SmallIntegerField("是否官方",choices=((0,"非官方"),(1,"官方")),default=0)
 
     def __unicode__(self):
-        return self.storeName
+        return unicode(self.storeName)
 
     class Meta:
         db_table = "store_temp"
