@@ -13,7 +13,7 @@ class ActiveTemplate(models.Model):
     series = models.CharField("系列",max_length=100)
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     class Meta():
         db_table = "active_template"
@@ -37,7 +37,7 @@ class Active(models.Model):
     addTime = models.DateTimeField("添增时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.subject
+        return unicode(self.subject)
 
     class Meta():
         db_table = "active"
@@ -52,7 +52,7 @@ class ActiveTop(models.Model):
     isDisplay = models.BooleanField("是否显示")
 
     def __unicode__(self):
-        return self.sort;
+        return unicode(self.sort)
 
     class Meta:
         db_table = "active_top"

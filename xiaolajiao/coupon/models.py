@@ -8,7 +8,7 @@ class ECouponCat(models.Model):
     type = models.SmallIntegerField("活动类型")
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     class Meta:
         db_table = "e_coupon_cat"
@@ -25,7 +25,7 @@ class ElectronicCoupons(models.Model):
     endTime = models.DateTimeField("结束时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     class Meta:
         db_table = "electronic_coupons"

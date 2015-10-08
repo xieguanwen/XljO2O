@@ -16,7 +16,7 @@ class ActiveComment(models.Model):
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.content
+        return unicode(self.content)
 
     class Meta:
         db_table = "active_comment"
@@ -39,7 +39,7 @@ class StoreComment(models.Model):
     status = models.SmallIntegerField("状态",default=STATUS[0][0],choices=STATUS,help_text="0:没有核对，1:已经核对")
 
     def __unicode__(self):
-        return self.content
+        return unicode(self.content)
 
     class Meta:
         db_table = "store_comment"

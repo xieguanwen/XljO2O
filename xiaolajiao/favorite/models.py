@@ -13,7 +13,7 @@ class Favorite(models.Model):
     clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="店员")
 
     def __unicode__(self):
-        return self.favoriteMobile
+        return unicode(self.favoriteMobile)
 
     class Meta:
         db_table = "clerk_favorite"
@@ -30,7 +30,7 @@ class ActiveFavorite(models.Model):
     addTime = models.DateTimeField("添增时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.activeId
+        return unicode(self.activeId)
 
     class Meta:
         db_table = "active_favorite"

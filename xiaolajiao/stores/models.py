@@ -41,7 +41,7 @@ class Store(models.Model):
     isOfficial = models.SmallIntegerField("是否官方",choices=((0,"非官方"),(1,"官方")),default=0)
 
     def __unicode__(self):
-        return self.storeName
+        return unicode(self.storeName)
 
     class Meta:
         db_table = "store"
@@ -92,18 +92,19 @@ class StoreTemp(models.Model):
 
 class Clerk(models.Model):
     SEX = (("男","男"),("女","女"))
+    ISCELEBRITY = ((0,'否'),(1,'是'))
     clerkId = models.AutoField("编号",primary_key=True)
     name = models.CharField("名字",max_length=50)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     sex = models.CharField("性别",max_length=10,blank=True,choices=SEX,default="男")
     constellation = models.CharField("星座",max_length=15,blank=True)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
-    isCelebrity = models.SmallIntegerField("明星店员")
+    isCelebrity = models.SmallIntegerField("明星店员",default=ISCELEBRITY[0][0],choices=ISCELEBRITY)
     photo = models.FileField("店员相片",upload_to="./images/uploads/",blank=True)
     slogan = models.CharField("店员口号",max_length=255)
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     class Meta:
         db_table = "clerk"

@@ -8,7 +8,7 @@ class NoticeCat(models.Model):
     contentTemplate = models.TextField("模板")
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     class Meta:
         db_table = "notice_cat"
@@ -23,7 +23,7 @@ class Notice(models.Model):
     noticeCatId = models.ForeignKey(NoticeCat,db_column="noticeCatId",verbose_name="通知分类")
 
     def __unicode__(self):
-        return self.subject
+        return unicode(self.subject)
 
     class Meta:
         db_table = "notice"

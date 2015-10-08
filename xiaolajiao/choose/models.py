@@ -13,7 +13,7 @@ class SelectedTheme(models.Model):
     type = models.SmallIntegerField("类型",choices=TYPE,default=TYPE[0][0],help_text="1：为周，2：为月，3：为年")
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
     class Meta:
         db_table = "selected_theme"
         app_label = "choose"
@@ -27,7 +27,7 @@ class StoreAward(models.Model):
     overallScore = models.IntegerField("综合分数")
 
     def __unicode__(self):
-        return self.selectedThemeId
+        return unicode(self.selectedThemeId)
 
     class Meta:
         db_table = "store_award"
@@ -42,7 +42,7 @@ class ClerkAward(models.Model):
     overallScore = models.IntegerField("综合分数")
 
     def __unicode__(self):
-        return self.clerkId
+        return unicode(self.clerkId)
 
     class Meta:
         db_table = "clerk_award"

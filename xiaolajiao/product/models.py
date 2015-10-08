@@ -17,7 +17,7 @@ class ProductSales(models.Model):
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.productName
+        return unicode(self.productName)
 
     class Meta():
         db_table = "product_sales"

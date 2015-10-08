@@ -11,7 +11,7 @@ class Province(models.Model):
     agency_id = models.SmallIntegerField("没有作用",blank=True,editable=False)
 
     def __unicode__(self):
-        return self.region_name
+        return unicode(self.region_name)
 
     class Meta:
         db_table = "province"
@@ -29,7 +29,7 @@ class City(models.Model):
     agency_id = models.SmallIntegerField("没有作用",blank=True,editable=False)
 
     def __unicode__(self):
-        return self.region_name
+        return unicode(self.region_name)
 
     class Meta:
         db_table = "city"
@@ -47,7 +47,7 @@ class Region(models.Model):
     agency_id = models.SmallIntegerField("没有作用",blank=True,editable=False)
 
     def __unicode__(self):
-        return self.region_name
+        return unicode(self.region_name)
 
     class Meta:
         db_table = "region"

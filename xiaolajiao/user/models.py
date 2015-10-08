@@ -29,7 +29,7 @@ class User(models.Model):
         self.password = make_password(raw_password)
 
     def __unicode__(self):
-        return self.userName
+        return unicode(self.userName)
 
     class Meta():
         db_table = "user"

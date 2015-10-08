@@ -23,7 +23,7 @@ class Agents(models.Model):
 
 
     def __unicode__(self):
-        return self.companyName
+        return unicode(self.companyName)
 
     class Meta:
         db_table = "agents"
