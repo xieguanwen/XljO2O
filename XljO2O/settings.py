@@ -145,7 +145,8 @@ INSTALLED_APPS = (
     'xiaolajiao.region',
     'xiaolajiao.statistics',
     'xiaolajiao.product',
-    'logging'
+    'xiaolajiao.sncode',
+    'logging',
     # 'api',
 )
 TEMPLATE_DIRS = (

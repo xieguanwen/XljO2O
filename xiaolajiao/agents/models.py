@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import time
-
 from django.db import models
-
 from xiaolajiao.user.models import User
 
 
@@ -21,7 +19,6 @@ class Agents(models.Model):
     agentsRegion = models.CharField('代理地区',max_length=50,blank=True,help_text="例如：北京。也可以用多个")
     agentsNo = models.IntegerField('代理商维一编号',help_text="例如：只能用数字",blank=True,default=int(time.time()))
 
-
     def __unicode__(self):
         return unicode(self.companyName)
 
@@ -30,6 +27,39 @@ class Agents(models.Model):
         app_label = "agents"
         verbose_name = "代理商"
         verbose_name_plural = "代理商"
+
+class MultiAgents(models.Model):
+    multiAgentsId = models.AutoField("地包",primary_key=True)
+    name = models.CharField("地包名",max_length=50)
+    agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
+    addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
+
+    def __unicode__(self):
+        return unicode(self.name);
+
+    class Meta():
+        db_table = "multi_agents"
+        app_label = "agents"
+        verbose_name = "地包"
+        verbose_name_plural = "地包"
+
+class Supervise(models.Model):
+    superviseId = models.AutoField("督导",primary_key=True)
+    name = models.CharField("督导名字",max_length=50)
+    agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
+    tel = models.CharField("电话号码",max_length=50)
+    mobile = models.CharField("手机",max_length=50)
+    addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
+
+    def __unicode__(self):
+        return unicode(self.name);
+
+    class Meta():
+        db_table = "supervise"
+        app_label = "agents"
+        verbose_name = "督导"
+        verbose_name_plural = "督导"
+
     
 
 
