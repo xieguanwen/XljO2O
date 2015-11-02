@@ -29,13 +29,19 @@ class Agents(models.Model):
         verbose_name_plural = "代理商"
 
 class MultiAgents(models.Model):
+    STATUS = ((0,"未通过"),(1,"通过"))
     multiAgentsId = models.AutoField("地包",primary_key=True)
     name = models.CharField("地包名",max_length=50)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
+    multiAgentsNo = models.IntegerField("地包代号",blank=True)
+    userId = models.ForeignKey(User,db_column="userId",verbose_name="用户")
+    status = models.SmallIntegerField("状态",default=STATUS[0][0],choices=STATUS,help_text="0:未通过,1:通过")
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
+    contact = models.CharField("联系人",max_length=50,blank=True)
+    contactTel = models.CharField("联系人电话",max_length=18,blank=True)
 
     def __unicode__(self):
-        return unicode(self.name);
+        return unicode(self.name)
 
     class Meta():
         db_table = "multi_agents"
@@ -50,9 +56,10 @@ class Supervise(models.Model):
     tel = models.CharField("电话号码",max_length=50)
     mobile = models.CharField("手机",max_length=50)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
+    multiAgentsId = models.ForeignKey(MultiAgents,db_column="multiAgentsId",verbose_name="地包",blank=True)
 
     def __unicode__(self):
-        return unicode(self.name);
+        return unicode(self.name)
 
     class Meta():
         db_table = "supervise"

@@ -1,0 +1,10 @@
+{% extends 'xadmin/views/model_list.html' %}
+{% load i18n %}
+
+{% block nav_btns %}
+  {% if has_add_permission %}
+    <a href="/sncode/batchsncode/" class="btn btn-primary" target="_blank"><i class="fa fa-plus"></i> {% trans "Batch Add" %}</a>
+    <a href="{{add_url}}" class="btn btn-primary"><i class="fa fa-plus"></i>
+    {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}</a>
+  {% endif %}
+{% endblock nav_btns %}

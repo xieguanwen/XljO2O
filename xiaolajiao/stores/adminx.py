@@ -2,7 +2,7 @@ import xadmin
 from xiaolajiao.stores.models import Store
 from xiaolajiao.stores.models import Clerk
 from xiaolajiao.stores.models import StoreTemp
-from xiaolajiao.stores.forms import StoresTempChangeForm;
+from xiaolajiao.stores.forms import StoresTempChangeForm
 
 
 class StoreAdmin(object):

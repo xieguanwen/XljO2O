@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-import logging
-import sys
+# import logging
 from django import forms
 from xiaolajiao.stores.models import StoreTemp
 from xiaolajiao.stores.models import Store
@@ -11,7 +10,7 @@ class StoresTempChangeForm(forms.ModelForm):
 
     def save(self, commit=True):
         storesTemp = super(StoresTempChangeForm, self).save(commit=False)
-        logging.basicConfig(filename = "/tmp/xiaolajiao.log", level = logging.INFO)
+        # logging.basicConfig(filename = "/tmp/xiaolajiao.log", level = logging.INFO)
         # logging.info(storesTemp.logType)
         # logging.info(storesTemp.storeId)
         # store.objects;
@@ -40,8 +39,10 @@ class StoresTempChangeForm(forms.ModelForm):
             store.getThere = storesTemp.getThere
             store.logType = storesTemp.logType
             store.isOfficial = storesTemp.isOfficial
+            store.superviseId = storesTemp.superviseId
+            store.multiAgentsId = storesTemp.multiAgentsId
             store.save(force_insert=True)
-            logging.info(store.pk)
+            # logging.info(store.pk)
             storesTemp.storeId = store.pk
         else:
             pass # @todo 还没有个要求

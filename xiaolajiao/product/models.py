@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from xiaolajiao.agents.models import Agents
+from xiaolajiao.agents.models import MultiAgents
 from xiaolajiao.stores.models import Store
 from xiaolajiao.stores.models import Clerk
 import datetime
@@ -36,12 +37,13 @@ class ProductColor(models.Model):
 
 class ProductSales(models.Model):
     productSalesId = models.AutoField("产品销售编号",primary_key=True)
-    productSn = models.CharField("网标料号",max_length=100)
+    imei = models.CharField("IMEI",max_length=100)
     productModel = models.CharField("入网型号",max_length=100,blank=True)
     productName = models.CharField("设备名称",max_length=100)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
+    multiAgentsId = models.ForeignKey(MultiAgents,db_column="multiAgentsId",verbose_name="地包",blank=True)
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
-    clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="店员")
+    clerkId = models.ForeignKey(Clerk,db_column="clerkId",verbose_name="店员",blank=True)
     tacCode = models.CharField("TAC",max_length=100,blank=True)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     productColorId = models.ForeignKey(ProductColor,db_column="productColorId",verbose_name="产品颜色")

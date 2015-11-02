@@ -7,14 +7,13 @@ import datetime
 
 class SnCode(models.Model):
     SNCODE_STATUS = ((0,"未用"),(1,"已用"),(2,"退货"))
-    imei = models.BigIntegerField("IMEI",unique=True)
-    snCode = models.BigIntegerField("串码",unique=True,primary_key=True)
+    imei = models.BigIntegerField("IMEI",unique=True,primary_key=True)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
     status = models.SmallIntegerField("串码状态",choices=SNCODE_STATUS,default=SNCODE_STATUS[0][0])
     addTime = models.DateTimeField("增加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.snCode
+        return unicode(self.imei)
 
     class Meta():
         db_table = 'sn_code'
@@ -23,15 +22,14 @@ class SnCode(models.Model):
         verbose_name_plural = "串码"
 
 class SnCodeAgents(models.Model):
-    imei = models.BigIntegerField("IMEI",unique=True)
-    snCode = models.BigIntegerField("串码",unique=True,primary_key=True)
+    imei = models.BigIntegerField("IMEI",unique=True,primary_key=True)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
     multiAgentsId = models.ForeignKey(MultiAgents,db_column="multiAgentsId",verbose_name="地包")
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺")
     addTime = models.DateTimeField("增加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
-        return self.snCode
+        return unicode(self.imei)
 
     class Meta():
         db_table = 'sn_code_agents'

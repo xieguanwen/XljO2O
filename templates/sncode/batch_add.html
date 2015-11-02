@@ -1,0 +1,31 @@
+{% extends "xadmin/base.html" %}
+{% load i18n xadmin_tags %}
+{% load url from future %}
+
+{% block title %}{% trans "Batch Add" %}{% endblock %}
+{% block bodyclass %}container{% endblock %}
+{% block body %}
+    <div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <td class="h3" colspan="3">
+                        <i class="fa fa-file"></i> {% trans "upload execal file of csv format" %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-2"><input type="file" name="uploadBatchAdd" id="uploadBatchAdd"></td>
+                    <td class="col-md-1"><input class="btn btn-primary" type="submit" value="{% trans "submit" %}"></td>
+                    <td id="help">{% trans "please use csv format" %}</td>
+                </tr>
+            </table>
+        </form>
+        {% if batchUploadSuccess %}
+            <div>{% trans "batch add file is success" %}</div>
+        {% endif %}
+    </div>
+{% endblock body %}
+{% block extrabody %}
+    <script src="{% static 'sncode/batchAdd.js' %}"></script>
+{% endblock extrabody %}

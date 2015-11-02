@@ -20,4 +20,4 @@ class MyAction(BaseActionView):
         return HttpResponse()
 
     def get_context(self):
-        return None;
+        return None
