@@ -2,15 +2,20 @@ import datetime
 from django.http import JsonResponse
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
-from xiaolajiao.sncode.models import SnCode
+from xiaolajiao.agents.models import Agents
 from django.db import connection
 
 def batchsncode(request):
     content = {}
     content.update(csrf(request))
+    agentses = Agents.objects.all()
+    content.update({"agentses":agentses})
     if(request.POST):
+        if(int(request.POST['agentsId']) == 0):
+            content.update({"errorMessage":"not select agents"})
+            return render_to_response("sncode/batch_add.html",content)
         file_obj = request.FILES['uploadBatchAdd']
-        print(file_obj.name.split('.')[1])
+        # print(file_obj.name.split('.')[1])
         if(file_obj.name.split('.')[1] == "csv"):
             import csv
             import StringIO
@@ -25,11 +30,8 @@ def batchsncode(request):
             successCount = 0
             faultCount = 0
             for row in reader:
-                print(row[1])
-                if(len(row)!=3):
-                    continue
                 sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
-                param = [row[0],row[1],row[2],datetime.datetime.now()]
+                param = [row[0],request.POST['agentsId'],0,datetime.datetime.now()]
                 try:
                     cursor.execute(sql,param)
                     successCount = successCount + 1

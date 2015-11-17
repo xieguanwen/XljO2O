@@ -17,7 +17,7 @@ class Agents(models.Model):
     tel = models.CharField("电话",max_length=30,blank=True)
     status = models.SmallIntegerField('状态',help_text="0:未通过,1:通过",choices=STATUS,default=STATUS[0][0],blank=True)
     agentsRegion = models.CharField('代理地区',max_length=50,blank=True,help_text="例如：北京。也可以用多个")
-    agentsNo = models.IntegerField('代理商维一编号',help_text="例如：只能用数字",blank=True,default=int(time.time()))
+    agentsNo = models.IntegerField('代理商维一编号',help_text="例如：只能用数字",blank=True,default=int(time.time()),unique=True)
 
     def __unicode__(self):
         return unicode(self.companyName)

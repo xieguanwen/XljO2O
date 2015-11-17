@@ -1352,3 +1352,7 @@ msgstr "提交"
 # sncode/bath_add.html:5
 msgid "please use csv format"
 msgstr "请使用csv格式的文件"
+
+# sncode/bath_add.html:11
+msgid "please select agents"
+msgstr "请选择代理人"

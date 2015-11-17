@@ -10,11 +10,19 @@
             {% csrf_token %}
             <table class="table">
                 <tr>
-                    <td class="h3" colspan="3">
+                    <td class="h3" colspan="4">
                         <i class="fa fa-file"></i> {% trans "upload execal file of csv format" %}
                     </td>
                 </tr>
                 <tr>
+                    <td class="col-md-1">
+                        <select name="agentsId">
+                            <option value="0">{% trans "please select agents" %}</option>
+                        {% for agents in agentses %}
+                            <option value="{{ agents.agentsId }}">{{ agents.companyName }}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
                     <td class="col-md-2"><input type="file" name="uploadBatchAdd" id="uploadBatchAdd"></td>
                     <td class="col-md-1"><input class="btn btn-primary" type="submit" value="{% trans "submit" %}"></td>
                     <td id="help">{% trans "please use csv format" %}</td>
