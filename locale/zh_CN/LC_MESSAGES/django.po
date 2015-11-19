@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xadmin-core\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 15:54+0800\n"
-"PO-Revision-Date: 2015-10-30 16:18+0800\n"
+"PO-Revision-Date: 2015-11-19 14:05+0800\n"
 "Last-Translator: sshwsfc <sshwsfc@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xadmin/language/zh_CN/)\n"
 "Language: zh_CN\n"
@@ -1355,4 +1355,24 @@ msgstr "请使用csv格式的文件"
 
 # sncode/bath_add.html:11
 msgid "please select agents"
-msgstr "请选择代理人"
+msgstr "请选择代理商"
+
+# sncode/bath_add.html:20
+msgid "upload success count"
+msgstr "上传成功条数"
+
+# sncode/bath_add.html:20
+msgid "upload fault count"
+msgstr "上传失败条数"
+
+# sncode/bath_add.html:20
+msgid "batch add file is fault"
+msgstr "批量上传没有成功"
+
+# xiaolajiao/sncode/views.py
+msgid "error csv"
+msgstr "不是csv格式"
+
+# xiaolajiao/sncode/views.py
+msgid "length is not 15 bit"
+msgstr "长度不是15位"

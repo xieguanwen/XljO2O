@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from xiaolajiao.agents.models import Agents
 from django.db import connection
+from django.utils.translation import ugettext as _
 
 def batchsncode(request):
     content = {}
@@ -23,20 +24,24 @@ def batchsncode(request):
             try:
                 reader = csv.reader(buf)
             except:
-                content.update({"errorMessage":"error csv"})
+                content.update({"errorMessage":_("error csv")})
                 return render_to_response("sncode/batch_add.html",content)
 
             cursor = connection.cursor()
             successCount = 0
             faultCount = 0
             for row in reader:
-                sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
-                param = [row[0],request.POST['agentsId'],0,datetime.datetime.now()]
-                try:
-                    cursor.execute(sql,param)
-                    successCount = successCount + 1
-                except:
-                    faultCount = faultCount + 1
+                if(15 == len(row[0])):
+                    sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
+                    param = [row[0],request.POST['agentsId'],0,datetime.datetime.now()]
+                    try:
+                        cursor.execute(sql,param)
+                        successCount = successCount + 1
+                    except:
+                        faultCount = faultCount + 1
+                else:
+                    content.update({"errorMessage":_("length is not 15 bit")})
+                    return render_to_response("sncode/batch_add.html",content)
             cursor.close()
             content.update({"batchUploadSuccess":1,"successCount":successCount,"faultCount":faultCount})
     return render_to_response("sncode/batch_add.html",content)

@@ -30,7 +30,18 @@
             </table>
         </form>
         {% if batchUploadSuccess %}
-            <div>{% trans "batch add file is success" %}</div>
+            <div class="panel">
+                <div class="panel-heading">{% trans "batch add file is success" %}</div>
+                <div class="panel-body">
+                    {% trans "upload success count" %}{{ successCount }}
+                    <br />
+                    {% trans "upload fault count" %}{{ faultCount }}
+                </div>
+            </div>
+        {% else %}
+            <div class="panel">
+                <div class="panel-heading">{% trans "batch add file is fault" %}</div>
+            </div>
         {% endif %}
     </div>
 {% endblock body %}
