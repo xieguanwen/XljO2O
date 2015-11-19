@@ -38,9 +38,10 @@
                     {% trans "upload fault count" %}{{ faultCount }}
                 </div>
             </div>
-        {% else %}
+        {% elif errorMessage %}
             <div class="panel">
                 <div class="panel-heading">{% trans "batch add file is fault" %}</div>
+                <div class="panel-body">{{ errorMessage }}</div>
             </div>
         {% endif %}
     </div>
