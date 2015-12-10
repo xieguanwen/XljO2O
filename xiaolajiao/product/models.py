@@ -12,7 +12,7 @@ from xiaolajiao.region.models import Region
 class ProductType(models.Model):
     productTypeId = models.AutoField("产品类型",primary_key=True)
     tacCode = models.IntegerField("TAC")
-    name = models.CharField("颜色值",max_length=100)
+    name = models.CharField("产品名称",max_length=100)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
 
     def __unicode__(self):
