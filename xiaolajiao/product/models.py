@@ -5,6 +5,9 @@ from xiaolajiao.agents.models import MultiAgents
 from xiaolajiao.stores.models import Store
 from xiaolajiao.stores.models import Clerk
 import datetime
+from xiaolajiao.region.models import Province
+from xiaolajiao.region.models import City
+from xiaolajiao.region.models import Region
 
 class ProductType(models.Model):
     productTypeId = models.AutoField("产品类型",primary_key=True)
@@ -47,6 +50,9 @@ class ProductSales(models.Model):
     tacCode = models.CharField("TAC",max_length=100,blank=True)
     addTime = models.DateTimeField("添加时间",default=datetime.datetime.now())
     productColorId = models.ForeignKey(ProductColor,db_column="productColorId",verbose_name="产品颜色")
+    province = models.ForeignKey(Province,db_column="province",verbose_name="省")
+    city = models.ForeignKey(City,db_column="city",verbose_name="市")
+    region = models.ForeignKey(Region,db_column="region",verbose_name="地区")
 
     def __unicode__(self):
         return unicode(self.productName)
