@@ -31,7 +31,7 @@ def batchsncode(request):
             successCount = 0
             faultCount = 0
             for row in reader:
-                if(15 == len(row[0])):
+                if(len((row[0]))>=15 and len(row[0])<=20):
                     sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
                     param = [row[0],request.POST['agentsId'],0,datetime.datetime.now()]
                     try:
