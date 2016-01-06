@@ -13,5 +13,6 @@ xadmin.site.register(SnCode,SnCodeAdmin)
 class SnCodeAgentsAdmin(object):
     list_display = ("imei","agentsId")
     list_display_links = ("imei",)
+    search_fields = ("imei",)
 
 xadmin.site.register(SnCodeAgents,SnCodeAgentsAdmin)
