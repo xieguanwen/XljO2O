@@ -17,6 +17,7 @@ def batchsncode(request):
             return render_to_response("sncode/batch_add.html",content)
         file_obj = request.FILES['uploadBatchAdd']
         # print(file_obj.name.split('.')[1])
+        cursor = connection.cursor()
         if(file_obj.name.split('.')[1] == "csv"):
             import csv
             import StringIO
@@ -27,7 +28,6 @@ def batchsncode(request):
                 content.update({"errorMessage":_("error csv")})
                 return render_to_response("sncode/batch_add.html",content)
 
-            cursor = connection.cursor()
             successCount = 0
             faultCount = 0
             for row in reader:
@@ -42,8 +42,22 @@ def batchsncode(request):
                 else:
                     content.update({"errorMessage":_("length is not 15 bit")})
                     return render_to_response("sncode/batch_add.html",content)
-            cursor.close()
-            content.update({"batchUploadSuccess":1,"successCount":successCount,"faultCount":faultCount})
+        elif(file_obj.name.split('.')[1] == "txt"):
+            lines = file_obj.readlines()
+            for line in lines:
+                if(len(line)>=15 and len(line)<=20):
+                    sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
+                    param = [line,request.POST['agentsId'],0,datetime.datetime.now()]
+                    try:
+                        cursor.execute(sql,param)
+                        successCount = successCount + 1
+                    except:
+                        faultCount = faultCount + 1
+                else:
+                    content.update({"errorMessage":_("length is not 15 bit")})
+                    return render_to_response("sncode/batch_add.html",content)
+        cursor.close()
+        content.update({"batchUploadSuccess":1,"successCount":successCount,"faultCount":faultCount})
     return render_to_response("sncode/batch_add.html",content)
 
 def handle_uploaded_file(fileOject, path = './'):
