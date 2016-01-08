@@ -18,6 +18,9 @@ def batchsncode(request):
         file_obj = request.FILES['uploadBatchAdd']
         # print(file_obj.name.split('.')[1])
         cursor = connection.cursor()
+        successCount = 0
+        faultCount = 0
+
         if(file_obj.name.split('.')[1] == "csv"):
             import csv
             import StringIO
@@ -28,10 +31,8 @@ def batchsncode(request):
                 content.update({"errorMessage":_("error csv")})
                 return render_to_response("sncode/batch_add.html",content)
 
-            successCount = 0
-            faultCount = 0
             for row in reader:
-                if(len((row[0]))>=15 and len(row[0])<=20):
+                if(len(row[0].strip(' '))==15):
                     sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
                     param = [row[0],request.POST['agentsId'],0,datetime.datetime.now()]
                     try:
@@ -45,7 +46,7 @@ def batchsncode(request):
         elif(file_obj.name.split('.')[1] == "txt"):
             lines = file_obj.readlines()
             for line in lines:
-                if(len(line)>=15 and len(line)<=20):
+                if(len(line.strip(' '))==15):
                     sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
                     param = [line,request.POST['agentsId'],0,datetime.datetime.now()]
                     try:
