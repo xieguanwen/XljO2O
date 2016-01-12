@@ -46,6 +46,7 @@ def batchsncode(request):
         elif(file_obj.name.split('.')[1] == "txt"):
             lines = file_obj.readlines()
             for line in lines:
+                line = line.strip('\r\n')
                 if(len(line.strip(' '))==15):
                     sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
                     param = [line,request.POST['agentsId'],0,datetime.datetime.now()]
