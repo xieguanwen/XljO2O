@@ -44,7 +44,7 @@ class Store(models.Model):
     isOfficial = models.SmallIntegerField("是否官方",choices=((0,"非官方"),(1,"官方")),default=0)
     storeType = models.SmallIntegerField("店铺类型",choices=STORETYPE,default=STORETYPE[0][0])
     multiAgentsId = models.ForeignKey(MultiAgents,db_column="multiAgentsId",verbose_name="地包",blank=True)
-    superviseId = models.ForeignKey(Supervise,db_column="superviseId",verbose_name="督导",blank=True)
+    superviseId = models.ForeignKey(Supervise,db_column="superviseId",verbose_name="督导",blank=True,null=True)
 
     def __unicode__(self):
         return unicode(self.storeName)
