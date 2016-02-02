@@ -66,9 +66,3 @@ class Supervise(models.Model):
         app_label = "agents"
         verbose_name = "督导"
         verbose_name_plural = "督导"
-
-    
-
-
-
-
