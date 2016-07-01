@@ -21,12 +21,16 @@ class SnCode(models.Model):
         verbose_name = "串码"
         verbose_name_plural = "串码"
 
+def getStoreId():
+    return Store.objects.get(storeId=1)
+
 class SnCodeAgents(models.Model):
     imei = models.BigIntegerField("IMEI",unique=True,primary_key=True)
     agentsId = models.ForeignKey(Agents,db_column="agentsId",verbose_name="代理商")
     multiAgentsId = models.ForeignKey(MultiAgents,db_column="multiAgentsId",verbose_name="地包")
     storeId = models.ForeignKey(Store,db_column="storeId",verbose_name="店铺",blank=True,null=True)
     addTime = models.DateTimeField("增加时间",default=datetime.datetime.now())
+
 
     def __unicode__(self):
         return unicode(self.imei)

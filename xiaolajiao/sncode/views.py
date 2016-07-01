@@ -5,6 +5,7 @@ from django.core.context_processors import csrf
 from xiaolajiao.agents.models import Agents
 from django.db import connection
 from django.utils.translation import ugettext as _
+import re
 
 def batchsncode(request):
     content = {}
@@ -32,9 +33,10 @@ def batchsncode(request):
                 return render_to_response("sncode/batch_add.html",content)
 
             for row in reader:
-                if(len(row[0].strip(' '))==15):
+                lineString = re.search('\d+',row[0]).group()
+                if(len(lineString)==15):
                     sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
-                    param = [row[0],request.POST['agentsId'],0,datetime.datetime.now()]
+                    param = [lineString,request.POST['agentsId'],0,datetime.datetime.now()]
                     try:
                         cursor.execute(sql,param)
                         successCount = successCount + 1
@@ -46,10 +48,10 @@ def batchsncode(request):
         elif(file_obj.name.split('.')[1] == "txt"):
             lines = file_obj.readlines()
             for line in lines:
-                line = line.strip('\r\n')
-                if(len(line.strip(' '))==15):
+                lineString = re.search('\d+',line).group()
+                if(len(lineString)==15):
                     sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
-                    param = [line,request.POST['agentsId'],0,datetime.datetime.now()]
+                    param = [lineString,request.POST['agentsId'],0,datetime.datetime.now()]
                     try:
                         cursor.execute(sql,param)
                         successCount = successCount + 1
