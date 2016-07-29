@@ -1,5 +1,4 @@
 import datetime
-from django.http import JsonResponse
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 from xiaolajiao.agents.models import Agents
