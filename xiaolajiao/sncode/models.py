@@ -41,3 +41,4 @@ class SnCodeAgents(models.Model):
         verbose_name = "代理商串码"
         verbose_name_plural = "代理商串码"
 
+

@@ -48,18 +48,20 @@ def batchsncode(request):
         elif(file_obj.name.split('.')[1] == "txt"):
             lines = file_obj.readlines()
             for line in lines:
-                lineString = re.search('\d+',line).group()
-                if(len(lineString)==15):
-                    sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
-                    param = [lineString,request.POST['agentsId'],0,datetime.datetime.now()]
-                    try:
-                        cursor.execute(sql,param)
-                        successCount = successCount + 1
-                    except:
-                        faultCount = faultCount + 1
-                else:
-                    content.update({"errorMessage":_("length is not 15 bit")})
-                    return render_to_response("sncode/batch_add.html",content)
+                # lineString = re.search('\d+',line).group()
+                lineList = re.findall('\d+',line)
+                for lineString in lineList:
+                    if(len(lineString)==15):
+                        sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
+                        param = [lineString,request.POST['agentsId'],0,datetime.datetime.now()]
+                        try:
+                            cursor.execute(sql,param)
+                            successCount = successCount + 1
+                        except:
+                            faultCount = faultCount + 1
+                    else:
+                        content.update({"errorMessage":_("length is not 15 bit")})
+                        return render_to_response("sncode/batch_add.html",content)
         cursor.close()
         content.update({"batchUploadSuccess":1,"successCount":successCount,"faultCount":faultCount})
     return render_to_response("sncode/batch_add.html",content)
