@@ -5,6 +5,7 @@ from xiaolajiao.agents.models import Agents
 from django.db import connection
 from django.utils.translation import ugettext as _
 import re
+import logging
 
 def batchsncode(request):
     content = {}
@@ -20,7 +21,6 @@ def batchsncode(request):
         cursor = connection.cursor()
         successCount = 0
         faultCount = 0
-
         if(file_obj.name.split('.')[1] == "csv"):
             import csv
             import StringIO
@@ -45,11 +45,16 @@ def batchsncode(request):
                     content.update({"errorMessage":_("length is not 15 bit")})
                     return render_to_response("sncode/batch_add.html",content)
         elif(file_obj.name.split('.')[1] == "txt"):
+            logging.basicConfig(filename = "/tmp/xljo2o.log", level = logging.INFO,format='%(levelname)s:%(message)s %(asctime)s',datefmt='%Y/%d/%m %I:%M:%S %p') # config log
+            logger = logging.getLogger()
+            logger.info("----------------------")
             lines = file_obj.readlines()
             for line in lines:
                 # lineString = re.search('\d+',line).group()
                 lineList = re.findall('\d+',line)
+                logger.info(line)
                 for lineString in lineList:
+                    logger.info(len(lineString))
                     if(len(lineString)==15):
                         sql = """ insert INTO sn_code(imei, agentsId, status, addTime) VALUES (%s,%s,%s,%s) """
                         param = [lineString,request.POST['agentsId'],0,datetime.datetime.now()]
