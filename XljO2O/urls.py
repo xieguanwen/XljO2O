@@ -9,7 +9,7 @@ import xiaolajiao.sncode.views as viewsUrl
 
 urlpatterns = patterns('',
     url(r'^', include(xadmin.site.urls)),
-    url(r'^ckeditor/', include('ckeditor.urls')),
+    # url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^statistics/', include(statisticsUrls)),
     url(r'^sncode/batchsncode/$',viewsUrl.batchsncode,name="batchsncode"),
     # url(r'^api/',include('api.urls')),
